@@ -3,2238 +3,2199 @@
 <html lang="es">
 
 <head>
-  <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <title>USM | Ingeniería del Agua y Desarrollo Sostenible</title>
-  <style>
-    :root {
-      --navy: #052a63;
-      --blue: #0a63d8;
-      --line: #d9e2ef;
-      --bg: #f3f5f7;
-      --card: #fff;
-      --text: #17304f;
-      --muted: #5f7590;
-      --link: #000;
-      --link-hover: #000;
-      --shadow: 0 8px 20px rgba(11, 36, 79, .08);
-      --radius: 14px;
-    }
-
-    * {
-      box-sizing: border-box
-    }
-
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--bg);
-      color: var(--text)
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit
-    }
-
-    button {
-      font: inherit;
-      cursor: pointer
-    }
-
-    .container {
-      width: min(calc(100% - 32px), 1460px);
-      margin: auto
-    }
-
-    .topbar {
-      background: var(--navy);
-      color: #fff;
-      font-size: 14px
-    }
-
-    .topbar .container {
-      min-height: 42px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between
-    }
-
-    .header {
-      background: #fff;
-      border-bottom: 1px solid #e6edf5
-    }
-
-    .header .container {
-      min-height: 84px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 22px
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 16px
-    }
-
-    .logo-box {
-      width: 62px;
-      height: 62px;
-      border: 2px solid #18468a;
-      border-radius: 4px;
-      display: grid;
-      place-items: center;
-      color: #18468a;
-      font-weight: 900;
-      font-size: 26px;
-      background: linear-gradient(180deg, #fff, #f3f8ff)
-    }
-
-    .brand-text .usm {
-      font-size: 28px;
-      font-weight: 900;
-      color: #16346a;
-      line-height: 1
-    }
-
-    .brand-text .inst {
-      font-size: 17px;
-      font-weight: 800;
-      color: #16346a;
-      line-height: 1.05
-    }
-
-    .brand-text .small {
-      font-size: 10px;
-      color: #5c7390;
-      font-weight: 700
-    }
-
-    .main-nav {
-      display: flex;
-      gap: 26px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      color: #193f77;
-      font-size: 15px;
-      font-weight: 700
-    }
-
-    .page {
-      padding: 24px 0 48px
-    }
-
-    .layout {
-      display: grid;
-      grid-template-columns: 340px minmax(0, 1fr);
-      gap: 24px;
-      align-items: start
-    }
-
-    .card,
-    .section-card,
-    .academic-structure,
-    .submenu .btn {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow)
-    }
-
-    .card-head {
-      background: var(--blue);
-      color: #fff;
-      font-weight: 900;
-      text-transform: uppercase;
-      font-size: 14px;
-      letter-spacing: .3px;
-      padding: 14px 18px
-    }
-
-    .card-body {
-      padding: 18px
-    }
-
-    .info-list {
-      display: grid;
-      gap: 18px
-    }
-
-    .info-item {
-      display: grid;
-      grid-template-columns: 24px 1fr;
-      gap: 12px
-    }
-
-    .i {
-      color: var(--blue);
-      font-size: 20px
-    }
-
-    .label {
-      color: var(--blue);
-      font-weight: 900;
-      font-size: 14px;
-      margin-bottom: 3px
-    }
-
-    .value {
-      font-size: 14px;
-      line-height: 1.45
-    }
-
-    .content-stack {
-      display: grid;
-      gap: 22px;
-      min-width: 0
-    }
-
-    .layout>aside {
-      min-width: 0;
-      align-self: start
-    }
-
-    .section-card,
-    .card,
-    .hero,
-    .academic-structure {
-      min-width: 0
-    }
-
-    .submenu {
-      display: grid;
-      grid-template-columns: 160px repeat(4, minmax(120px, 1fr));
-      gap: 10px
-    }
-
-    .submenu .btn {
-      min-height: 58px;
-      padding: 0 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      font-weight: 900;
-      color: #123b79;
-      text-align: center
-    }
-
-    .submenu .btn.primary,
-    .submenu .btn.active {
-      background: var(--blue);
-      color: #fff;
-      border-color: var(--blue)
-    }
-
-    .page-view {
-      display: none
-    }
-
-    .page-view.active {
-      display: grid;
-      gap: 22px
-    }
-
-    .hero {
-      min-height: 340px;
-      padding: 28px;
-      display: grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 18px;
-      background: linear-gradient(180deg, #f9fcff, #eef5ff)
-    }
-
-    .hero h1 {
-      margin: 0 0 16px;
-      font-size: 58px;
-      line-height: 1.04;
-      color: #13366f;
-      letter-spacing: -1.1px
-    }
-
-    .underline {
-      width: 58px;
-      height: 4px;
-      background: var(--blue);
-      border-radius: 999px;
-      margin: 18px 0 20px
-    }
-
-    .hero p {
-      font-size: 18px;
-      line-height: 1.55;
-      color: #234567;
-      max-width: 760px
-    }
-
-    .hero-topline {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-bottom: 8px
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      min-height: 32px;
-      padding: 0 12px;
-      border-radius: 999px;
-      background: #eef4ff;
-      color: var(--blue);
-      font-size: 13px;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: .3px
-    }
-
-    .hero-download {
-      color: #000;
-      font-size: 13px;
-      font-weight: 400;
-      text-decoration: underline;
-      text-underline-offset: 2px
-    }
-
-    .hero-visual {
-      min-height: 250px;
-      border-radius: 18px;
-      background: linear-gradient(180deg, #dff0ff, #f4fbff);
-      border: 1px solid #d7e5f7;
-      position: relative;
-      overflow: hidden
-    }
-
-    .hero-visual svg {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%
-    }
-
-    .study-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      padding: 20px 24px 14px
-    }
-
-    .study-header h2,
-    .section-title,
-    .academic-structure h2 {
-      margin: 0;
-      color: var(--blue);
-      font-size: 18px;
-      text-transform: uppercase;
-      font-weight: 900
-    }
-
-    .section-title {
-      padding: 20px 24px 0
-    }
-
-    .section-body {
-      padding: 20px 24px 24px
-    }
-
-    .download-link {
-      color: #000;
-      font-weight: 400;
-      font-size: 13px;
-      text-decoration: underline;
-      text-underline-offset: 2px
-    }
-
-    .semester-tabs {
-      display: grid;
-      grid-template-columns: repeat(10, minmax(0, 1fr));
-      margin: 0 20px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      overflow: hidden;
-      background: #f2f4f7
-    }
-
-    .semester-tabs button {
-      border: none;
-      background: #eef1f5;
-      color: #233d64;
-      min-height: 62px;
-      font-weight: 900;
-      padding: 8px 6px;
-      border-right: 1px solid var(--line)
-    }
-
-    .semester-tabs button:last-child {
-      border-right: none
-    }
-
-    .semester-tabs button.active {
-      background: var(--blue);
-      color: #fff
-    }
-
-    .semester-tabs small {
-      display: block;
-      font-size: 12px;
-      font-weight: 700;
-      margin-top: 4px
-    }
-
-    .semester-panel {
-      padding: 10px 20px 18px
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 14px
-    }
-
-    thead th {
-      text-align: left;
-      color: #364b6c;
-      font-size: 12px;
-      text-transform: uppercase;
-      padding: 8px 10px;
-      border-bottom: 2px solid var(--line)
-    }
-
-    tbody td {
-      padding: 8px 10px;
-      border-bottom: 1px solid #e8eef5
-    }
-
-    tfoot td {
-      padding: 10px;
-      font-weight: 800;
-      color: #1c3b73;
-      text-align: right
-    }
-
-    .description-grid {
-      display: grid;
-      grid-template-columns: minmax(320px, 1fr) minmax(420px, 1.2fr);
-      gap: 32px;
-      align-items: stretch
-    }
-
-    .description-copy {
-      display: grid;
-      align-content: center;
-      gap: 16px
-    }
-
-    .description-copy p {
-      margin: 0;
-      font-size: 15px;
-      line-height: 1.7;
-      color: #274565
-    }
-
-    .description-copy .download-link {
-      font-size: 14px
-    }
-
-    .video-placeholder {
-      display: grid;
-      gap: 14px;
-      align-content: start
-    }
-
-    .video-frame {
-      position: relative;
-      width: 100%;
-      min-height: 360px;
-      height: 100%;
-      border-radius: 18px;
-      overflow: hidden;
-      background: linear-gradient(180deg, #dfefff, #f7fbff);
-      border: 1px dashed #bfd5f1;
-      box-shadow: var(--shadow)
-    }
-
-    .video-frame::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(5, 42, 99, .08), rgba(5, 42, 99, .22))
-    }
-
-    .video-frame iframe,
-    .video-frame video,
-    .video-frame .video-dummy {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: 0
-    }
-
-    .video-dummy {
-      display: grid;
-      place-items: center;
-      padding: 32px;
-      text-align: center;
-      color: #fff;
-      font-weight: 800;
-      line-height: 1.6;
-      font-size: 20px;
-      z-index: 1
-    }
-
-    .video-note {
-      margin: 0;
-      font-size: 13px;
-      color: #5f7590
-    }
-
-    .benefits {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr)
-    }
-
-    .benefit {
-      padding: 18px 16px;
-      text-align: center;
-      border-right: 1px solid #e7edf6
-    }
-
-    .benefit:last-child {
-      border-right: none
-    }
-
-    .benefit .bigicon {
-      font-size: 40px;
-      color: var(--blue);
-      margin-bottom: 10px
-    }
-
-    .benefit h3 {
-      margin: 0 0 8px;
-      font-size: 17px;
-      color: #16396d
-    }
-
-    .benefit p {
-      margin: 0;
-      color: #4f6580;
-      font-size: 14px;
-      line-height: 1.45
-    }
-
-    .profile-tabs {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      padding: 0 20px
-    }
-
-    .profile-tabs button {
-      min-width: 260px;
-      min-height: 44px;
-      border-radius: 8px;
-      border: 1px solid var(--line);
-      background: #fff;
-      color: #18427c;
-      font-weight: 900;
-      box-shadow: var(--shadow)
-    }
-
-    .profile-tabs button.active {
-      background: var(--blue);
-      border-color: var(--blue);
-      color: #fff
-    }
-
-    .profile-box {
-      margin: 20px 24px 24px;
-      background: #eef6ff;
-      border-radius: 10px;
-      padding: 24px;
-      display: grid;
-      grid-template-columns: 140px 1fr;
-      gap: 24px;
-      align-items: center
-    }
-
-    .profile-illustration {
-      width: 120px;
-      height: 120px;
-      border: 4px solid var(--blue);
-      border-radius: 50%;
-      margin: 0 auto;
-      position: relative
-    }
-
-    .profile-illustration:before {
-      content: "";
-      position: absolute;
-      top: 18px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 36px;
-      height: 36px;
-      border: 3px solid var(--blue);
-      border-radius: 50%
-    }
-
-    .profile-illustration:after {
-      content: "";
-      position: absolute;
-      bottom: 18px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 64px;
-      height: 36px;
-      border: 3px solid var(--blue);
-      border-top-left-radius: 40px;
-      border-top-right-radius: 40px;
-      border-bottom: none
-    }
-
-    .checklist {
-      margin: 0;
-      padding-left: 0;
-      list-style: none
-    }
-
-    .checklist li {
-      position: relative;
-      padding-left: 24px;
-      margin: 8px 0;
-      color: #274565;
-      font-size: 14px;
-      line-height: 1.5
-    }
-
-    .checklist li:before {
-      content: "✔";
-      position: absolute;
-      left: 0;
-      color: var(--blue);
-      font-weight: 900
-    }
-
-    .academic-structure {
-      padding: 24px;
-      display: grid;
-      gap: 18px
-    }
-
-    .academic-structure h2 {
-      text-align: center
-    }
-
-    .structure-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr)
-    }
-
-    .structure-item {
-      padding: 16px 14px;
-      border-right: 1px solid #e7edf6;
-      display: grid;
-      grid-template-columns: 52px 1fr;
-      gap: 12px
-    }
-
-    .structure-item:nth-child(3n) {
-      border-right: none
-    }
-
-    .bubble {
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      background: #eef3f8;
-      color: var(--blue);
-      display: grid;
-      place-items: center;
-      font-size: 24px
-    }
-
-    .structure-item h4 {
-      margin: 0 0 6px;
-      font-size: 15px;
-      color: #16396d
-    }
-
-    .structure-item p {
-      margin: 0;
-      font-size: 13px;
-      color: #506682;
-      line-height: 1.45
-    }
-
-    .coord {
-      text-align: center;
-      border-bottom: 1px solid #e8edf5;
-      padding-bottom: 16px
-    }
-
-    .photo-ph {
-      width: 146px;
-      height: 146px;
-      border-radius: 50%;
-      margin: 0 auto 14px;
-      border: 2px dashed #d0d7e3;
-      background: #f2f4f7;
-      position: relative
-    }
-
-    .photo-ph:before {
-      content: "";
-      width: 62px;
-      height: 62px;
-      border-radius: 50%;
-      background: #c7c9ce;
-      position: absolute;
-      top: 28px;
-      left: 42px
-    }
-
-    .photo-ph:after {
-      content: "";
-      width: 110px;
-      height: 55px;
-      border-radius: 55px 55px 20px 20px;
-      background: #c7c9ce;
-      position: absolute;
-      bottom: 18px;
-      left: 18px
-    }
-
-    .coord .role {
-      font-weight: 900;
-      color: #1c3560
-    }
-
-    .coord .name {
-      font-size: 15px;
-      font-weight: 800;
-      color: #1b3561
-    }
-
-    .contact-card .card-body,
-    .inscription .card-body {
-      display: grid;
-      gap: 18px
-    }
-
-    .contact-row {
-      display: grid;
-      grid-template-columns: 28px minmax(0, 1fr);
-      gap: 12px
-    }
-
-    .contact-row .icon {
-      color: var(--blue);
-      font-size: 24px
-    }
-
-    .contact-row b {
-      display: block;
-      color: #1e3a67;
-      margin-bottom: 2px
-    }
-
-    .contact-row span {
-      display: block;
-      color: #324b6f;
-      font-size: 14px;
-      line-height: 1.5;
-      word-break: break-word;
-      overflow-wrap: anywhere
-    }
-
-    .cta-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      min-height: 56px;
-      border-radius: 8px;
-      font-weight: 900;
-      border: 2px solid var(--blue)
-    }
-
-    .cta-btn.primary {
-      background: var(--blue);
-      color: #fff
-    }
-
-    .cta-btn.secondary {
-      background: #fff;
-      color: var(--blue)
-    }
-
-    .highlight-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      padding: 0 24px 24px
-    }
-
-    .highlight {
-      background: #f7fbff;
-      border: 1px solid #dfeaf8;
-      border-radius: 12px;
-      padding: 16px
-    }
-
-    .highlight h3 {
-      margin: 0 0 8px;
-      color: #18427c;
-      font-size: 16px
-    }
-
-    .highlight p {
-      margin: 0;
-      color: #4d6380;
-      font-size: 14px;
-      line-height: 1.5
-    }
-
-    .mini-note {
-      font-size: 12px;
-      color: #6b7f98
-    }
-
-    .faculty-link {
-      color: #000;
-      font-weight: 400;
-      text-decoration: underline;
-      text-underline-offset: 2px
-    }
-
-    .faculty-link {
-      color: #000;
-      font-weight: 400;
-      text-decoration: underline;
-      text-underline-offset: 2px
-    }
-
-    .faculty-link:hover,
-    .hero-download:hover,
-    .download-link:hover {
-      color: #000
-    }
-
-
-
-    .mission-vision-grid {
-      grid-template-columns: repeat(2, 1fr)
-    }
-
-    .objectives-section .section-body p {
-      margin: 0;
-      color: #274565;
-      font-size: 15px;
-      line-height: 1.7
-    }
-
-    .objectives-carousel {
-      position: relative;
-      margin-top: 20px;
-    }
-
-    .objectives-carousel::after {
-      content: "Desliza para ver más →";
-      display: none;
-      margin-top: 10px;
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 700;
-      text-align: right;
-    }
-
-    .objectives-list {
-      counter-reset: objective;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-      margin: 0;
-      padding: 0;
-      list-style: none
-    }
-
-    .objectives-card {
-      counter-increment: objective;
-      position: relative;
-      min-height: 230px;
-      padding: 22px 20px 20px;
-      overflow: hidden;
-      background: linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
-      border: 1px solid #dfeaf8;
-      border-radius: 16px;
-      box-shadow: var(--shadow);
-      color: #274565;
-      font-size: 14px;
-      line-height: 1.6;
-      animation: objectiveFadeUp .55s ease both;
-      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease
-    }
-
-    .objectives-card:nth-child(2) {
-      animation-delay: .06s
-    }
-
-    .objectives-card:nth-child(3) {
-      animation-delay: .12s
-    }
-
-    .objectives-card:nth-child(4) {
-      animation-delay: .18s
-    }
-
-    .objectives-card:nth-child(5) {
-      animation-delay: .24s
-    }
-
-    .objectives-card:nth-child(6) {
-      animation-delay: .30s
-    }
-
-    .objectives-card::before {
-      content: counter(objective, decimal-leading-zero);
-      display: grid;
-      place-items: center;
-      width: 44px;
-      height: 44px;
-      margin-bottom: 18px;
-      border-radius: 14px;
-      background: var(--blue);
-      color: #fff;
-      font-size: 15px;
-      font-weight: 900;
-      box-shadow: 0 10px 22px rgba(10, 99, 216, .22)
-    }
-
-    .objectives-card::after {
-      content: "";
-      position: absolute;
-      right: -34px;
-      bottom: -34px;
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      background: rgba(10, 99, 216, .08);
-      transition: transform .25s ease
-    }
-
-    .objectives-card:hover {
-      transform: translateY(-8px);
-      border-color: #bcd7f7;
-      box-shadow: 0 18px 34px rgba(11, 36, 79, .14)
-    }
-
-    .objectives-card:hover::after {
-      transform: scale(1.25)
-    }
-
-    @keyframes objectiveFadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(14px)
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0)
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .objectives-card {
-        animation: none;
-        transition: none
-      }
-    }
-
-
-    @media (max-width:1100px) {
-      .objectives-list {
-        display: flex;
-        gap: 16px;
-        overflow-x: auto;
-        overflow-y: hidden;
-        scroll-snap-type: x mandatory;
-        padding: 4px 4px 18px;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: thin
-      }
-
-      .objectives-card {
-        flex: 0 0 min(340px, 82vw);
-        min-height: 220px;
-        scroll-snap-align: start
-      }
-
-      .objectives-carousel::after {
-        display: block
-      }
-    }
-
-    @media (max-width:480px) {
-      .objectives-card {
-        flex-basis: 86vw;
-        min-height: 240px;
-        padding: 20px 18px
-      }
-    }
-
-    @media (max-width:900px) {
-      .mission-vision-grid {
-        grid-template-columns: 1fr
-      }
-    }
-
-    footer {
-      margin-top: 18px;
-      background: var(--navy);
-      color: #fff;
-      padding: 22px 0 18px
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1.3fr 1fr .8fr;
-      gap: 30px
-    }
-
-    .footer-brand {
-      display: flex;
-      align-items: flex-end;
-      gap: 12px
-    }
-
-    .footer-brand .usm-foot {
-      font-size: 30px;
-      font-weight: 900
-    }
-
-    .footer-brand .inst-foot {
-      font-size: 13px;
-      font-weight: 700;
-      line-height: 1.2
-    }
-
-    .footer-links {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px 30px;
-      font-size: 14px
-    }
-
-    .footer-links b,
-    .footer-social b {
-      display: block;
-      margin-bottom: 10px
-    }
-
-    .icons {
-      display: flex;
-      gap: 12px
-    }
-
-    .soc {
-      width: 34px;
-      height: 34px;
-      border: 1px solid rgba(255, 255, 255, .45);
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      font-weight: 900
-    }
-
-    .legal {
-      text-align: center;
-      font-size: 13px;
-      opacity: .9;
-      padding-top: 16px
-    }
-
-    @media (max-width:1280px) {
-      .container {
-        width: min(calc(100% - 28px), 1280px)
-      }
-
-      .layout {
-        grid-template-columns: 300px minmax(0, 1fr);
-        gap: 20px
-      }
-
-      .submenu {
-        grid-template-columns: repeat(3, minmax(0, 1fr))
-      }
-
-      .hero {
-        grid-template-columns: minmax(0, 1fr);
-        padding: 24px
-      }
-
-      .hero h1 {
-        font-size: 50px
-      }
-
-      .description-grid {
-        grid-template-columns: 1fr;
-        gap: 24px
-      }
-
-      .video-frame {
-        min-height: 340px
-      }
-
-      .structure-grid,
-      .benefits,
-      .highlight-grid {
-        grid-template-columns: 1fr 1fr
-      }
-
-      .footer-grid {
-        grid-template-columns: 1fr
-      }
-    }
-
-    @media (max-width:1100px) {
-      .layout {
-        grid-template-columns: 1fr
-      }
-
-      .submenu {
-        grid-template-columns: repeat(2, minmax(0, 1fr))
-      }
-
-      .semester-tabs {
-        display: flex;
-        overflow-x: auto;
-        overflow-y: hidden;
-        scrollbar-width: thin;
-        -webkit-overflow-scrolling: touch
-      }
-
-      .semester-tabs button {
-        flex: 0 0 120px;
-        border-right: 1px solid var(--line)
-      }
-
-      .semester-tabs button:last-child {
-        border-right: none
-      }
-
-      .study-header {
-        padding: 18px 20px 12px
-      }
-
-      .section-title {
-        padding: 18px 20px 0
-      }
-
-      .section-body {
-        padding: 18px 20px 22px
-      }
-
-      .profile-box {
-        grid-template-columns: 120px 1fr;
-        margin: 18px 20px 22px;
-        padding: 20px
-      }
-
-      .highlight-grid {
-        padding: 0 20px 22px
-      }
-    }
-
-    @media (max-width:900px) {
-      .header .container {
-        min-height: auto;
-        padding: 16px 0;
-        align-items: flex-start
-      }
-
-      .main-nav {
-        gap: 14px;
-        font-size: 14px
-      }
-
-      .hero h1 {
-        font-size: 42px
-      }
-
-      .hero p {
-        font-size: 17px
-      }
-
-      .benefits,
-      .highlight-grid,
-      .structure-grid {
-        grid-template-columns: 1fr
-      }
-
-      .structure-item {
-        border-right: none;
-        border-bottom: 1px solid #e7edf6
-      }
-
-      .structure-item:last-child {
-        border-bottom: none
-      }
-    }
-
-    @media (max-width:760px) {
-      .topbar .container {
-        gap: 10px;
-        flex-direction: column;
-        justify-content: center;
-        padding: 8px 0;
-        text-align: center
-      }
-
-      .main-nav {
-        display: none
-      }
-
-      .brand {
-        gap: 12px
-      }
-
-      .brand-text .usm {
-        font-size: 24px
-      }
-
-      .brand-text .inst {
-        font-size: 15px
-      }
-
-      .submenu {
-        grid-template-columns: 1fr
-      }
-
-      .description-grid,
-      .profile-box {
-        grid-template-columns: 1fr
-      }
-
-      .video-frame {
-        min-height: 260px
-      }
-
-      .hero {
-        padding: 22px
-      }
-
-      .hero h1 {
-        font-size: 34px;
-        letter-spacing: -.5px
-      }
-
-      .hero-topline {
-        align-items: flex-start
-      }
-
-      .study-header {
-        flex-direction: column;
-        align-items: flex-start
-      }
-
-      .semester-tabs button {
-        flex-basis: 108px;
-        min-height: 56px
-      }
-
-      .profile-tabs button {
-        min-width: 100%
-      }
-
-      .section-title,
-      .study-header,
-      .section-body,
-      .profile-box,
-      .highlight-grid,
-      .academic-structure {
-        padding-left: 18px;
-        padding-right: 18px
-      }
-    }
-
-    .map-preview {
-      margin-top: 10px;
-      border: 1px solid #dfe6f0;
-      border-radius: 12px;
-      overflow: hidden;
-      background: #fff
-    }
-
-    .map-preview iframe {
-      display: block;
-      width: 100%;
-      height: 190px;
-      border: 0
-    }
-
-    .program-link-card {
-      background: #f7fbff;
-      border: 1px solid #dfeaf8;
-      border-radius: 12px;
-      padding: 16px
-    }
-
-    .program-link-subtitle {
-      font-size: 18px;
-      font-weight: 900;
-      color: #16396d;
-      margin: 0 0 10px
-    }
-
-    .docs-box {
-      background: #f7fbff;
-      border: 1px solid #dfeaf8;
-      border-radius: 12px;
-      padding: 16px
-    }
-
-    .docs-box h3 {
-      margin: 0 0 10px;
-      font-size: 15px;
-      color: #16396d
-    }
-
-    .docs-list {
-      margin: 0;
-      padding-left: 18px;
-      color: #324b6f;
-      font-size: 14px;
-      line-height: 1.65
-    }
-
-    .docs-list li {
-      margin: 4px 0
-    }
-
-    .contact-link {
-      color: #000;
-      text-decoration: underline;
-      text-underline-offset: 2px
-    }
-  </style>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>USM | Ingeniería del Agua y Desarrollo Sostenible</title>
+    <style>
+        :root {
+            --navy: #052a63;
+            --blue: #0a63d8;
+            --line: #d9e2ef;
+            --bg: #f3f5f7;
+            --card: #fff;
+            --text: #17304f;
+            --muted: #5f7590;
+            --link: #000;
+            --link-hover: #000;
+            --shadow: 0 8px 20px rgba(11, 36, 79, .08);
+            --radius: 14px;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--bg);
+            color: var(--text)
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit
+        }
+
+        button {
+            font: inherit;
+            cursor: pointer
+        }
+
+        .container {
+            width: min(calc(100% - 32px), 1460px);
+            margin: auto
+        }
+
+        .topbar {
+            background: var(--navy);
+            color: #fff;
+            font-size: 14px
+        }
+
+        .topbar .container {
+            min-height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        .header {
+            background: #fff;
+            border-bottom: 1px solid #e6edf5
+        }
+
+        .header .container {
+            min-height: 84px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 22px
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 16px
+        }
+
+        .logo-box {
+            width: 62px;
+            height: 62px;
+            border: 2px solid #18468a;
+            border-radius: 4px;
+            display: grid;
+            place-items: center;
+            color: #18468a;
+            font-weight: 900;
+            font-size: 26px;
+            background: linear-gradient(180deg, #fff, #f3f8ff)
+        }
+
+        .brand-text .usm {
+            font-size: 28px;
+            font-weight: 900;
+            color: #16346a;
+            line-height: 1
+        }
+
+        .brand-text .inst {
+            font-size: 17px;
+            font-weight: 800;
+            color: #16346a;
+            line-height: 1.05
+        }
+
+        .brand-text .small {
+            font-size: 10px;
+            color: #5c7390;
+            font-weight: 700
+        }
+
+        .main-nav {
+            display: flex;
+            gap: 26px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            color: #193f77;
+            font-size: 15px;
+            font-weight: 700
+        }
+
+        .page {
+            padding: 24px 0 48px
+        }
+
+        .layout {
+            display: grid;
+            grid-template-columns: 340px minmax(0, 1fr);
+            gap: 24px;
+            align-items: start
+        }
+
+        .card,
+        .section-card,
+        .academic-structure,
+        .submenu .btn {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow)
+        }
+
+        .card-head {
+            background: var(--blue);
+            color: #fff;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: .3px;
+            padding: 14px 18px
+        }
+
+        .card-body {
+            padding: 18px
+        }
+
+        .info-list {
+            display: grid;
+            gap: 18px
+        }
+
+        .info-item {
+            display: grid;
+            grid-template-columns: 24px 1fr;
+            gap: 12px
+        }
+
+        .i {
+            color: var(--blue);
+            font-size: 20px
+        }
+
+        .label {
+            color: var(--blue);
+            font-weight: 900;
+            font-size: 14px;
+            margin-bottom: 3px
+        }
+
+        .value {
+            font-size: 14px;
+            line-height: 1.45
+        }
+
+        .content-stack {
+            display: grid;
+            gap: 22px;
+            min-width: 0
+        }
+
+        .layout>aside {
+            min-width: 0;
+            align-self: start
+        }
+
+        .section-card,
+        .card,
+        .hero,
+        .academic-structure {
+            min-width: 0
+        }
+
+        .submenu {
+            display: grid;
+            grid-template-columns: 160px repeat(4, minmax(120px, 1fr));
+            gap: 10px
+        }
+
+        .submenu .btn {
+            min-height: 58px;
+            padding: 0 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-weight: 900;
+            color: #123b79;
+            text-align: center
+        }
+
+        .submenu .btn.primary,
+        .submenu .btn.active {
+            background: var(--blue);
+            color: #fff;
+            border-color: var(--blue)
+        }
+
+        .page-view {
+            display: none
+        }
+
+        .page-view.active {
+            display: grid;
+            gap: 22px
+        }
+
+        .hero {
+            min-height: 340px;
+            padding: 28px;
+            display: grid;
+            grid-template-columns: 1.2fr .8fr;
+            gap: 18px;
+            background: linear-gradient(180deg, #f9fcff, #eef5ff)
+        }
+
+        .hero h1 {
+            margin: 0 0 16px;
+            font-size: 58px;
+            line-height: 1.04;
+            color: #13366f;
+            letter-spacing: -1.1px
+        }
+
+        .underline {
+            width: 58px;
+            height: 4px;
+            background: var(--blue);
+            border-radius: 999px;
+            margin: 18px 0 20px
+        }
+
+        .hero p {
+            font-size: 18px;
+            line-height: 1.55;
+            color: #234567;
+            max-width: 760px
+        }
+
+        .hero-topline {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-bottom: 8px
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            min-height: 32px;
+            padding: 0 12px;
+            border-radius: 999px;
+            background: #eef4ff;
+            color: var(--blue);
+            font-size: 13px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: .3px
+        }
+
+        .hero-download {
+            color: #000;
+            font-size: 13px;
+            font-weight: 400;
+            text-decoration: underline;
+            text-underline-offset: 2px
+        }
+
+        .hero-visual {
+            min-height: 250px;
+            border-radius: 18px;
+            background: linear-gradient(180deg, #dff0ff, #f4fbff);
+            border: 1px solid #d7e5f7;
+            position: relative;
+            overflow: hidden
+        }
+
+        .hero-visual svg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%
+        }
+
+        .study-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            padding: 20px 24px 14px
+        }
+
+        .study-header h2,
+        .section-title,
+        .academic-structure h2 {
+            margin: 0;
+            color: var(--blue);
+            font-size: 18px;
+            text-transform: uppercase;
+            font-weight: 900
+        }
+
+        .section-title {
+            padding: 20px 24px 0
+        }
+
+        .section-body {
+            padding: 20px 24px 24px
+        }
+
+        .download-link {
+            color: #000;
+            font-weight: 400;
+            font-size: 13px;
+            text-decoration: underline;
+            text-underline-offset: 2px
+        }
+
+        .semester-tabs {
+            display: grid;
+            grid-template-columns: repeat(10, minmax(0, 1fr));
+            margin: 0 20px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            overflow: hidden;
+            background: #f2f4f7
+        }
+
+        .semester-tabs button {
+            border: none;
+            background: #eef1f5;
+            color: #233d64;
+            min-height: 62px;
+            font-weight: 900;
+            padding: 8px 6px;
+            border-right: 1px solid var(--line)
+        }
+
+        .semester-tabs button:last-child {
+            border-right: none
+        }
+
+        .semester-tabs button.active {
+            background: var(--blue);
+            color: #fff
+        }
+
+        .semester-tabs small {
+            display: block;
+            font-size: 12px;
+            font-weight: 700;
+            margin-top: 4px
+        }
+
+        .semester-panel {
+            padding: 10px 20px 18px
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px
+        }
+
+        thead th {
+            text-align: left;
+            color: #364b6c;
+            font-size: 12px;
+            text-transform: uppercase;
+            padding: 8px 10px;
+            border-bottom: 2px solid var(--line)
+        }
+
+        tbody td {
+            padding: 8px 10px;
+            border-bottom: 1px solid #e8eef5
+        }
+
+        tfoot td {
+            padding: 10px;
+            font-weight: 800;
+            color: #1c3b73;
+            text-align: right
+        }
+
+        .description-grid {
+            display: grid;
+            grid-template-columns: minmax(320px, 1fr) minmax(420px, 1.2fr);
+            gap: 32px;
+            align-items: stretch
+        }
+
+        .description-copy {
+            display: grid;
+            align-content: center;
+            gap: 16px
+        }
+
+        .description-copy p {
+            margin: 0;
+            font-size: 15px;
+            line-height: 1.7;
+            color: #274565
+        }
+
+        .description-copy .download-link {
+            font-size: 14px
+        }
+
+        .video-placeholder {
+            display: grid;
+            gap: 14px;
+            align-content: start
+        }
+
+        .video-frame {
+            position: relative;
+            width: 100%;
+            min-height: 360px;
+            height: 100%;
+            border-radius: 18px;
+            overflow: hidden;
+            background: linear-gradient(180deg, #dfefff, #f7fbff);
+            border: 1px dashed #bfd5f1;
+            box-shadow: var(--shadow)
+        }
+
+        .video-frame::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(5, 42, 99, .08), rgba(5, 42, 99, .22))
+        }
+
+        .video-frame iframe,
+        .video-frame video,
+        .video-frame .video-dummy {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0
+        }
+
+        .video-dummy {
+            display: grid;
+            place-items: center;
+            padding: 32px;
+            text-align: center;
+            color: #fff;
+            font-weight: 800;
+            line-height: 1.6;
+            font-size: 20px;
+            z-index: 1
+        }
+
+        .video-note {
+            margin: 0;
+            font-size: 13px;
+            color: #5f7590
+        }
+
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr)
+        }
+
+        .benefit {
+            padding: 18px 16px;
+            text-align: center;
+            border-right: 1px solid #e7edf6
+        }
+
+        .benefit:last-child {
+            border-right: none
+        }
+
+        .benefit .bigicon {
+            font-size: 40px;
+            color: var(--blue);
+            margin-bottom: 10px
+        }
+
+        .benefit h3 {
+            margin: 0 0 8px;
+            font-size: 17px;
+            color: #16396d
+        }
+
+        .benefit p {
+            margin: 0;
+            color: #4f6580;
+            font-size: 14px;
+            line-height: 1.45
+        }
+
+        .profile-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            padding: 0 20px
+        }
+
+        .profile-tabs button {
+            min-width: 260px;
+            min-height: 44px;
+            border-radius: 8px;
+            border: 1px solid var(--line);
+            background: #fff;
+            color: #18427c;
+            font-weight: 900;
+            box-shadow: var(--shadow)
+        }
+
+        .profile-tabs button.active {
+            background: var(--blue);
+            border-color: var(--blue);
+            color: #fff
+        }
+
+        .profile-box {
+            margin: 20px 24px 24px;
+            background: #eef6ff;
+            border-radius: 10px;
+            padding: 24px;
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            gap: 24px;
+            align-items: center
+        }
+
+        .profile-illustration {
+            width: 120px;
+            height: 120px;
+            border: 4px solid var(--blue);
+            border-radius: 50%;
+            margin: 0 auto;
+            position: relative
+        }
+
+        .profile-illustration:before {
+            content: "";
+            position: absolute;
+            top: 18px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 36px;
+            height: 36px;
+            border: 3px solid var(--blue);
+            border-radius: 50%
+        }
+
+        .profile-illustration:after {
+            content: "";
+            position: absolute;
+            bottom: 18px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 64px;
+            height: 36px;
+            border: 3px solid var(--blue);
+            border-top-left-radius: 40px;
+            border-top-right-radius: 40px;
+            border-bottom: none
+        }
+
+        .checklist {
+            margin: 0;
+            padding-left: 0;
+            list-style: none
+        }
+
+        .checklist li {
+            position: relative;
+            padding-left: 24px;
+            margin: 8px 0;
+            color: #274565;
+            font-size: 14px;
+            line-height: 1.5
+        }
+
+        .checklist li:before {
+            content: "✔";
+            position: absolute;
+            left: 0;
+            color: var(--blue);
+            font-weight: 900
+        }
+
+        .academic-structure {
+            padding: 24px;
+            display: grid;
+            gap: 18px
+        }
+
+        .academic-structure h2 {
+            text-align: center
+        }
+
+        .structure-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr)
+        }
+
+        .structure-item {
+            padding: 16px 14px;
+            border-right: 1px solid #e7edf6;
+            display: grid;
+            grid-template-columns: 52px 1fr;
+            gap: 12px
+        }
+
+        .structure-item:nth-child(3n) {
+            border-right: none
+        }
+
+        .bubble {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: #eef3f8;
+            color: var(--blue);
+            display: grid;
+            place-items: center;
+            font-size: 24px
+        }
+
+        .structure-item h4 {
+            margin: 0 0 6px;
+            font-size: 15px;
+            color: #16396d
+        }
+
+        .structure-item p {
+            margin: 0;
+            font-size: 13px;
+            color: #506682;
+            line-height: 1.45
+        }
+
+        .coord {
+            text-align: center;
+            border-bottom: 1px solid #e8edf5;
+            padding-bottom: 16px
+        }
+
+        .photo-ph {
+            width: 146px;
+            height: 146px;
+            border-radius: 50%;
+            margin: 0 auto 14px;
+            border: 2px dashed #d0d7e3;
+            background: #f2f4f7;
+            position: relative
+        }
+
+        .photo-ph:before {
+            content: "";
+            width: 62px;
+            height: 62px;
+            border-radius: 50%;
+            background: #c7c9ce;
+            position: absolute;
+            top: 28px;
+            left: 42px
+        }
+
+        .photo-ph:after {
+            content: "";
+            width: 110px;
+            height: 55px;
+            border-radius: 55px 55px 20px 20px;
+            background: #c7c9ce;
+            position: absolute;
+            bottom: 18px;
+            left: 18px
+        }
+
+        .coord .role {
+            font-weight: 900;
+            color: #1c3560
+        }
+
+        .coord .name {
+            font-size: 15px;
+            font-weight: 800;
+            color: #1b3561
+        }
+
+        .contact-card .card-body,
+        .inscription .card-body {
+            display: grid;
+            gap: 18px
+        }
+
+        .contact-row {
+            display: grid;
+            grid-template-columns: 28px minmax(0, 1fr);
+            gap: 12px
+        }
+
+        .contact-row .icon {
+            color: var(--blue);
+            font-size: 24px
+        }
+
+        .contact-row b {
+            display: block;
+            color: #1e3a67;
+            margin-bottom: 2px
+        }
+
+        .contact-row span {
+            display: block;
+            color: #324b6f;
+            font-size: 14px;
+            line-height: 1.5;
+            word-break: break-word;
+            overflow-wrap: anywhere
+        }
+
+        .cta-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            min-height: 56px;
+            border-radius: 8px;
+            font-weight: 900;
+            border: 2px solid var(--blue)
+        }
+
+        .cta-btn.primary {
+            background: var(--blue);
+            color: #fff
+        }
+
+        .cta-btn.secondary {
+            background: #fff;
+            color: var(--blue)
+        }
+
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            padding: 0 24px 24px
+        }
+
+        .highlight {
+            background: #f7fbff;
+            border: 1px solid #dfeaf8;
+            border-radius: 12px;
+            padding: 16px
+        }
+
+        .highlight h3 {
+            margin: 0 0 8px;
+            color: #18427c;
+            font-size: 16px
+        }
+
+        .highlight p {
+            margin: 0;
+            color: #4d6380;
+            font-size: 14px;
+            line-height: 1.5
+        }
+
+        .mini-note {
+            font-size: 12px;
+            color: #6b7f98
+        }
+
+        .faculty-link {
+            color: #000;
+            font-weight: 400;
+            text-decoration: underline;
+            text-underline-offset: 2px
+        }
+
+        .faculty-link {
+            color: #000;
+            font-weight: 400;
+            text-decoration: underline;
+            text-underline-offset: 2px
+        }
+
+        .faculty-link:hover,
+        .hero-download:hover,
+        .download-link:hover {
+            color: #000
+        }
+
+
+
+        .mission-vision-grid {
+            grid-template-columns: repeat(2, 1fr)
+        }
+
+        .objectives-section .section-body p {
+            margin: 0;
+            color: #274565;
+            font-size: 15px;
+            line-height: 1.7
+        }
+
+        .objectives-carousel {
+            position: relative;
+            margin-top: 20px;
+        }
+
+        .objectives-carousel::after {
+            content: "Desliza para ver más →";
+            display: none;
+            margin-top: 10px;
+            color: var(--muted);
+            font-size: 12px;
+            font-weight: 700;
+            text-align: right;
+        }
+
+        .objectives-list {
+            counter-reset: objective;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+            margin: 0;
+            padding: 0;
+            list-style: none
+        }
+
+        .objectives-card {
+            counter-increment: objective;
+            position: relative;
+            min-height: 230px;
+            padding: 22px 20px 20px;
+            overflow: hidden;
+            background: linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
+            border: 1px solid #dfeaf8;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            color: #274565;
+            font-size: 14px;
+            line-height: 1.6;
+            animation: objectiveFadeUp .55s ease both;
+            transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease
+        }
+
+        .objectives-card:nth-child(2) { animation-delay: .06s }
+        .objectives-card:nth-child(3) { animation-delay: .12s }
+        .objectives-card:nth-child(4) { animation-delay: .18s }
+        .objectives-card:nth-child(5) { animation-delay: .24s }
+        .objectives-card:nth-child(6) { animation-delay: .30s }
+
+        .objectives-card::before {
+            content: counter(objective, decimal-leading-zero);
+            display: grid;
+            place-items: center;
+            width: 44px;
+            height: 44px;
+            margin-bottom: 18px;
+            border-radius: 14px;
+            background: var(--blue);
+            color: #fff;
+            font-size: 15px;
+            font-weight: 900;
+            box-shadow: 0 10px 22px rgba(10, 99, 216, .22)
+        }
+
+        .objectives-card::after {
+            content: "";
+            position: absolute;
+            right: -34px;
+            bottom: -34px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: rgba(10, 99, 216, .08);
+            transition: transform .25s ease
+        }
+
+        .objectives-card:hover {
+            transform: translateY(-8px);
+            border-color: #bcd7f7;
+            box-shadow: 0 18px 34px rgba(11, 36, 79, .14)
+        }
+
+        .objectives-card:hover::after {
+            transform: scale(1.25)
+        }
+
+        @keyframes objectiveFadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(14px)
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .objectives-card {
+                animation: none;
+                transition: none
+            }
+        }
+
+
+        @media (max-width:1100px) {
+            .objectives-list {
+                display: flex;
+                gap: 16px;
+                overflow-x: auto;
+                overflow-y: hidden;
+                scroll-snap-type: x mandatory;
+                padding: 4px 4px 18px;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: thin
+            }
+
+            .objectives-card {
+                flex: 0 0 min(340px, 82vw);
+                min-height: 220px;
+                scroll-snap-align: start
+            }
+
+            .objectives-carousel::after {
+                display: block
+            }
+        }
+
+        @media (max-width:480px) {
+            .objectives-card {
+                flex-basis: 86vw;
+                min-height: 240px;
+                padding: 20px 18px
+            }
+        }
+
+        @media (max-width:900px) {
+            .mission-vision-grid {
+                grid-template-columns: 1fr
+            }
+        }
+
+        footer {
+            margin-top: 18px;
+            background: var(--navy);
+            color: #fff;
+            padding: 22px 0 18px
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr .8fr;
+            gap: 30px
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: flex-end;
+            gap: 12px
+        }
+
+        .footer-brand .usm-foot {
+            font-size: 30px;
+            font-weight: 900
+        }
+
+        .footer-brand .inst-foot {
+            font-size: 13px;
+            font-weight: 700;
+            line-height: 1.2
+        }
+
+        .footer-links {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 30px;
+            font-size: 14px
+        }
+
+        .footer-links b,
+        .footer-social b {
+            display: block;
+            margin-bottom: 10px
+        }
+
+        .icons {
+            display: flex;
+            gap: 12px
+        }
+
+        .soc {
+            width: 34px;
+            height: 34px;
+            border: 1px solid rgba(255, 255, 255, .45);
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            font-weight: 900
+        }
+
+        .legal {
+            text-align: center;
+            font-size: 13px;
+            opacity: .9;
+            padding-top: 16px
+        }
+
+        @media (max-width:1280px) {
+            .container {
+                width: min(calc(100% - 28px), 1280px)
+            }
+
+            .layout {
+                grid-template-columns: 300px minmax(0, 1fr);
+                gap: 20px
+            }
+
+            .submenu {
+                grid-template-columns: repeat(3, minmax(0, 1fr))
+            }
+
+            .hero {
+                grid-template-columns: minmax(0, 1fr);
+                padding: 24px
+            }
+
+            .hero h1 {
+                font-size: 50px
+            }
+
+            .description-grid {
+                grid-template-columns: 1fr;
+                gap: 24px
+            }
+
+            .video-frame {
+                min-height: 340px
+            }
+
+            .structure-grid,
+            .benefits,
+            .highlight-grid {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr
+            }
+        }
+
+        @media (max-width:1100px) {
+            .layout {
+                grid-template-columns: 1fr
+            }
+
+            .submenu {
+                grid-template-columns: repeat(2, minmax(0, 1fr))
+            }
+
+            .semester-tabs {
+                display: flex;
+                overflow-x: auto;
+                overflow-y: hidden;
+                scrollbar-width: thin;
+                -webkit-overflow-scrolling: touch
+            }
+
+            .semester-tabs button {
+                flex: 0 0 120px;
+                border-right: 1px solid var(--line)
+            }
+
+            .semester-tabs button:last-child {
+                border-right: none
+            }
+
+            .study-header {
+                padding: 18px 20px 12px
+            }
+
+            .section-title {
+                padding: 18px 20px 0
+            }
+
+            .section-body {
+                padding: 18px 20px 22px
+            }
+
+            .profile-box {
+                grid-template-columns: 120px 1fr;
+                margin: 18px 20px 22px;
+                padding: 20px
+            }
+
+            .highlight-grid {
+                padding: 0 20px 22px
+            }
+        }
+
+        @media (max-width:900px) {
+            .header .container {
+                min-height: auto;
+                padding: 16px 0;
+                align-items: flex-start
+            }
+
+            .main-nav {
+                gap: 14px;
+                font-size: 14px
+            }
+
+            .hero h1 {
+                font-size: 42px
+            }
+
+            .hero p {
+                font-size: 17px
+            }
+
+            .benefits,
+            .highlight-grid,
+            .structure-grid {
+                grid-template-columns: 1fr
+            }
+
+            .structure-item {
+                border-right: none;
+                border-bottom: 1px solid #e7edf6
+            }
+
+            .structure-item:last-child {
+                border-bottom: none
+            }
+        }
+
+        @media (max-width:760px) {
+            .topbar .container {
+                gap: 10px;
+                flex-direction: column;
+                justify-content: center;
+                padding: 8px 0;
+                text-align: center
+            }
+
+            .main-nav {
+                display: none
+            }
+
+            .brand {
+                gap: 12px
+            }
+
+            .brand-text .usm {
+                font-size: 24px
+            }
+
+            .brand-text .inst {
+                font-size: 15px
+            }
+
+            .submenu {
+                grid-template-columns: 1fr
+            }
+
+            .description-grid,
+            .profile-box {
+                grid-template-columns: 1fr
+            }
+
+            .video-frame {
+                min-height: 260px
+            }
+
+            .hero {
+                padding: 22px
+            }
+
+            .hero h1 {
+                font-size: 34px;
+                letter-spacing: -.5px
+            }
+
+            .hero-topline {
+                align-items: flex-start
+            }
+
+            .study-header {
+                flex-direction: column;
+                align-items: flex-start
+            }
+
+            .semester-tabs button {
+                flex-basis: 108px;
+                min-height: 56px
+            }
+
+            .profile-tabs button {
+                min-width: 100%
+            }
+
+            .section-title,
+            .study-header,
+            .section-body,
+            .profile-box,
+            .highlight-grid,
+            .academic-structure {
+                padding-left: 18px;
+                padding-right: 18px
+            }
+        }
+
+        .map-preview {
+            margin-top: 10px;
+            border: 1px solid #dfe6f0;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #fff
+        }
+
+        .map-preview iframe {
+            display: block;
+            width: 100%;
+            height: 190px;
+            border: 0
+        }
+
+        .program-link-card {
+            background: #f7fbff;
+            border: 1px solid #dfeaf8;
+            border-radius: 12px;
+            padding: 16px
+        }
+
+        .program-link-subtitle {
+            font-size: 18px;
+            font-weight: 900;
+            color: #16396d;
+            margin: 0 0 10px
+        }
+
+        .docs-box {
+            background: #f7fbff;
+            border: 1px solid #dfeaf8;
+            border-radius: 12px;
+            padding: 16px
+        }
+
+        .docs-box h3 {
+            margin: 0 0 10px;
+            font-size: 15px;
+            color: #16396d
+        }
+
+        .docs-list {
+            margin: 0;
+            padding-left: 18px;
+            color: #324b6f;
+            font-size: 14px;
+            line-height: 1.65
+        }
+
+        .docs-list li {
+            margin: 4px 0
+        }
+
+        .contact-link {
+            color: #000;
+            text-decoration: underline;
+            text-underline-offset: 2px
+        }
+    </style>
 </head>
 
 <body>
-  <div class="topbar">
-    <div class="container">
-      <div>✉ comunicaciones@usm.edu.co</div>
-      <div>🌐 <strong>GOV.CO</strong></div>
+    <div class="topbar">
+        <div class="container">
+            <div>✉ comunicaciones@usm.edu.co</div>
+            <div>🌐 <strong>GOV.CO</strong></div>
+        </div>
     </div>
-  </div>
-  <header class="header">
-    <div class="container">
-      <div class="brand">
-        <div class="logo-box">USM</div>
-        <div class="brand-text">
-          <div class="usm">USM</div>
-          <div class="inst">INSTITUCIÓN UNIVERSITARIA<br />DE SANTA MARTA</div>
-          <div class="small">VIGILADA MINEDUCACIÓN</div>
-        </div>
-      </div>
-      <nav class="main-nav">
-        <a href="#">La USM</a>
-        <a href="#">Académica</a>
-        <a href="#">Admisiones</a>
-        <a href="#">Investigación</a>
-        <a href="#">Extensión</a>
-        <a href="#">Bienestar</a>
-        <a href="#">Transparencia</a>
-        <a href="#">Atención al ciudadano</a>
-      </nav>
-    </div>
-  </header>
-  <main class="page">
-    <div class="container layout">
-      <aside>
-        <div class="card" style="margin-top:18px;">
-          <div class="card-head">Información general</div>
-          <div class="card-body">
-            <div class="info-list">
-              <div class="info-item">
-                <div class="i">🏛</div>
-                <div>
-                  <div class="label">Facultad</div>
-                  <div class="value"><a class="faculty-link"
-                      href="facultad-ingenieria-y-ciencias-del-agua.html">Ingeniería y Ciencias
-                      del Agua</a></div>
+    <header class="header">
+        <div class="container">
+            <div class="brand">
+                <div class="logo-box">USM</div>
+                <div class="brand-text">
+                    <div class="usm">USM</div>
+                    <div class="inst">INSTITUCIÓN UNIVERSITARIA<br />DE SANTA MARTA</div>
+                    <div class="small">VIGILADA MINEDUCACIÓN</div>
                 </div>
-              </div>
+            </div>
+            <nav class="main-nav">
+                <a href="#">La USM</a>
+                <a href="#">Académica</a>
+                <a href="#">Admisiones</a>
+                <a href="#">Investigación</a>
+                <a href="#">Extensión</a>
+                <a href="#">Bienestar</a>
+                <a href="#">Transparencia</a>
+                <a href="#">Atención al ciudadano</a>
+            </nav>
+        </div>
+    </header>
+    <main class="page">
+        <div class="container layout">
+            <aside>
+                <div class="card" style="margin-top:18px;">
+                    <div class="card-head">Información general</div>
+                    <div class="card-body">
+                        <div class="info-list">
+                            <div class="info-item">
+                                <div class="i">🏛</div>
+                                <div>
+                                    <div class="label">Facultad</div>
+                                    <div class="value"><a class="faculty-link"
+                                            href="facultad-ingenieria-y-ciencias-del-agua.html">Ingeniería y Ciencias
+                                            del Agua</a></div>
+                                </div>
+                            </div>
 
-              <div class="info-item">
-                <div class="i">🔗</div>
-                <div>
-                  <div class="label">Programa articulado por ciclo propedéutico</div>
-                  <div class="value"><a class="faculty-link" href="tecnologia-en-gestion-del-agua.html">Tecnología en
-                      Gestión del
-                      Agua</a></div>
+                            <div class="info-item">
+                                <div class="i">🔗</div>
+                                <div>
+                                    <div class="label">Programa articulado por ciclo propedéutico</div>
+                                    <div class="value"><a class="faculty-link"
+                                            href="tecnologia-en-gestion-del-agua.html">Tecnología en Gestión del
+                                            Agua</a></div>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="i">🪪</div>
+                                <div>
+                                    <div class="label">SNIES</div>
+                                    <div class="value">En espera de asignación</div>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="i">🏅</div>
+                                <div>
+                                    <div class="label">Registro Calificado</div>
+                                    <div class="value"><a class="faculty-link" download=""
+                                            href="resolucion-no-007624-17-mar-2026.pdf">Resolución No. 007624 del 17 de
+                                            marzo de 2026</a></div>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="i">📜</div>
+                                <div>
+                                    <div class="label">Norma Interna de Creación</div>
+                                    <div class="value"><a class="faculty-link" download=""
+                                            href="acuerdo-consejo-directivo-no-013-09-mayo-2025.pdf">Acuerdo del Consejo
+                                            directivo No. 013 del 9 de mayo de 2025</a> con vigencia de 7 años.</div>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="i">🎓</div>
+                                <div>
+                                    <div class="label">Título a otorgar</div>
+                                    <div class="value">Ingeniero del Agua y Desarrollo Sostenible</div>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="i">🧭</div>
+                                <div>
+                                    <div class="label">Nivel de formación</div>
+                                    <div class="value">Profesional Universitario - Nivel 6 MNC</div>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="i">🧪</div>
+                                <div>
+                                    <div class="label">Campo detallado CINE</div>
+                                    <div class="value">0732 / Ingeniería y Tecnología del Agua</div>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="i">📚</div>
+                                <div>
+                                    <div class="label">Número de créditos académicos del nivel</div>
+                                    <div class="value">170 CA</div>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="i">📅</div>
+                                <div>
+                                    <div class="label">Duración estimada</div>
+                                    <div class="value">10 semestres académicos</div>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="i">🗓</div>
+                                <div>
+                                    <div class="label">Periodicidad de admisión</div>
+                                    <div class="value">Semestral</div>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="i">👥</div>
+                                <div>
+                                    <div class="label">Estudiantes de primer periodo</div>
+                                    <div class="value">80</div>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="i">🏫</div>
+                                <div>
+                                    <div class="label">Modalidad / Jornada</div>
+                                    <div class="value">Presencial / Diurna (Tarde)</div>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="i">🕘</div>
+                                <div>
+                                    <div class="label">Horario de clases</div>
+                                    <div class="value">Lunes a viernes de 2:30 p.m. a 7:30 p.m. <a class="faculty-link" href="horarios-ingenieria-del-agua-y-desarrollo-sostenible.html">Ver Horarios</a></div>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="i">📍</div>
+                                <div>
+                                    <div class="label">Lugar de desarrollo</div>
+                                    <div class="value">Santa Marta, Magdalena - Colombia</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <div class="info-item">
-                <div class="i">🪪</div>
-                <div>
-                  <div class="label">SNIES</div>
-                  <div class="value">En espera de asignación</div>
-                </div>
-              </div>
-              <div class="info-item">
-                <div class="i">🏅</div>
-                <div>
-                  <div class="label">Registro Calificado</div>
-                  <div class="value"><a class="faculty-link" download=""
-                      href="resolucion-no-007624-17-mar-2026.pdf">Resolución No. 007624 del 17 de
-                      marzo de 2026</a></div>
-                </div>
-              </div>
-              <div class="info-item">
-                <div class="i">📜</div>
-                <div>
-                  <div class="label">Norma Interna de Creación</div>
-                  <div class="value"><a class="faculty-link" download=""
-                      href="acuerdo-consejo-directivo-no-013-09-mayo-2025.pdf">Acuerdo del Consejo
-                      directivo No. 013 del 9 de mayo de 2025</a> con vigencia de 7 años.</div>
-                </div>
-              </div>
-              <div class="info-item">
-                <div class="i">🎓</div>
-                <div>
-                  <div class="label">Título a otorgar</div>
-                  <div class="value">Ingeniero del Agua y Desarrollo Sostenible</div>
-                </div>
-              </div>
-              <div class="info-item">
-                <div class="i">🧭</div>
-                <div>
-                  <div class="label">Nivel de formación</div>
-                  <div class="value">Profesional Universitario - Nivel 6 MNC</div>
-                </div>
-              </div>
-              <div class="info-item">
-                <div class="i">🧪</div>
-                <div>
-                  <div class="label">Campo detallado CINE</div>
-                  <div class="value">0732 / Ingeniería y Tecnología del Agua</div>
-                </div>
-              </div>
-              <div class="info-item">
-                <div class="i">📚</div>
-                <div>
-                  <div class="label">Número de créditos académicos del nivel</div>
-                  <div class="value">170 CA</div>
-                </div>
-              </div>
-              <div class="info-item">
-                <div class="i">📅</div>
-                <div>
-                  <div class="label">Duración estimada</div>
-                  <div class="value">10 semestres académicos</div>
-                </div>
-              </div>
-              <div class="info-item">
-                <div class="i">🗓</div>
-                <div>
-                  <div class="label">Periodicidad de admisión</div>
-                  <div class="value">Semestral</div>
-                </div>
-              </div>
-              <div class="info-item">
-                <div class="i">👥</div>
-                <div>
-                  <div class="label">Estudiantes de primer periodo</div>
-                  <div class="value">80</div>
-                </div>
-              </div>
-              <div class="info-item">
-                <div class="i">🏫</div>
-                <div>
-                  <div class="label">Modalidad / Jornada</div>
-                  <div class="value">Presencial / Diurna (Tarde)</div>
-                </div>
-              </div>
-              <div class="info-item">
-                <div class="i">🕘</div>
-                <div>
-                  <div class="label">Horario de clases</div>
-                  <div class="value">Lunes a viernes de 2:30 p.m. a 7:30 p.m. <a class="faculty-link"
-                      href="horarios-ingenieria-del-agua-y-desarrollo-sostenible.html">Ver Horarios</a></div>
-                </div>
-              </div>
-              <div class="info-item">
-                <div class="i">📍</div>
-                <div>
-                  <div class="label">Lugar de desarrollo</div>
-                  <div class="value">Santa Marta, Magdalena - Colombia</div>
-                </div>
-              </div>
-              <div class="info-item">
-                <div class="i">🔁</div>
-                <div>
-                  <div class="label">Programa por ciclos</div>
-                  <div class="value">Sí · continuidad del programa Tecnología en Gestión del Agua
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <div class="card contact-card">
-          <div class="card-head">Contacto del programa</div>
-          <div class="card-body">
-            <div class="coord">
-              <div class="photo-ph"></div>
-              <div class="role">Director del Programa</div>
-              <div class="name">Robert Reyes Peralta</div>
-            </div>
-            <div class="contact-row">
-              <div class="icon">✉</div>
-              <div><b>Correo Institucional</b><span><a class="contact-link"
-                    href="mailto:ingagua@usm.edu.co">ingagua@usm.edu.co</a></span></div>
-            </div>
-            <div class="contact-row">
-              <div class="icon">📞</div>
-              <div><b>Teléfono institucional</b><span><a class="contact-link" href="tel:+573104573534">(+57) 310 457
-                    3534</a></span></div>
-            </div>
-            <div class="contact-row">
-              <div class="icon">📍</div>
-              <div><b>Ubicación</b><span>Calle 29A # 35-390, IED INEM Simón Bolívar<br />Entrada 3,
-                  contigua al Centro Comercial Buenavista</span>
-                <div class="map-preview">
-                  <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-                    src="https://www.google.com/maps?q=Calle%2029A%20%23%2035-390%2C%20IED%20INEM%20Sim%C3%B3n%20Bol%C3%ADvar%2C%20Entrada%203%2C%20Santa%20Marta%2C%20Magdalena&amp;output=embed"
-                    title="Vista previa de Google Maps"></iframe>
+                <div class="card contact-card">
+                    <div class="card-head">Contacto del programa</div>
+                    <div class="card-body">
+                        <div class="coord">
+                            <div class="photo-ph"></div>
+                            <div class="role">Director del Programa</div>
+                            <div class="name">Robert Reyes Peralta</div>
+                        </div>
+                        <div class="contact-row">
+                            <div class="icon">✉</div>
+                            <div><b>Correo Institucional</b><span><a class="contact-link"
+                                        href="mailto:ingagua@usm.edu.co">ingagua@usm.edu.co</a></span></div>
+                        </div>
+                        <div class="contact-row">
+                            <div class="icon">📞</div>
+                            <div><b>Teléfono institucional</b><span><a class="contact-link"
+                                        href="tel:+573104573534">(+57) 310 457 3534</a></span></div>
+                        </div>
+                        <div class="contact-row">
+                            <div class="icon">📍</div>
+                            <div><b>Ubicación</b><span>Calle 29A # 35-390, IED INEM Simón Bolívar<br />Entrada 3,
+                                    contigua al Centro Comercial Buenavista</span>
+                                <div class="map-preview">
+                                    <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                                        src="https://www.google.com/maps?q=Calle%2029A%20%23%2035-390%2C%20IED%20INEM%20Sim%C3%B3n%20Bol%C3%ADvar%2C%20Entrada%203%2C%20Santa%20Marta%2C%20Magdalena&amp;output=embed"
+                                        title="Vista previa de Google Maps"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-row">
+                            <div class="icon">🌐</div>
+                            <div><b>Portal Web Institucional</b><span><a class="contact-link" href="https://usm.edu.co/"
+                                        rel="noopener noreferrer" target="_blank">https://usm.edu.co/</a></span></div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-            <div class="contact-row">
-              <div class="icon">🌐</div>
-              <div><b>Portal Web Institucional</b><span><a class="contact-link" href="https://usm.edu.co/"
-                    rel="noopener noreferrer" target="_blank">https://usm.edu.co/</a></span></div>
-            </div>
-          </div>
-        </div>
-        <div class="card" style="margin-top:18px;">
-          <div class="card-head">Ver Programa Base</div>
-          <div class="card-body" style="display:grid;gap:14px;">
-            <div class="program-link-card">
-              <div class="program-link-subtitle">Tecnología en Gestión del Agua</div>
-              <p style="margin:0;color:#324b6f;font-size:14px;line-height:1.6;">Este programa académico
-                corresponde al nivel de tecnología y representa el primer nivel del ciclo propedéutico,
-                que se articula con el programa académico de Ingeniería del Agua y Desarrollo Sostenible
-                para consolidar la trayectoria formativa que oferta la institución.</p>
-            </div>
-            <a class="cta-btn secondary" href="tecnologia-en-gestion-del-agua.html">VER PROGRAMA BASE</a>
-          </div>
-        </div>
-        <div class="card inscription" id="inscripcion" style="margin-top:18px;">
-          <div class="card-head" style="text-align:center;">Inscripción</div>
-          <div class="card-body">
-            <div class="docs-box">
-              <h3>Documentos Requeridos:</h3>
-              <ul class="docs-list">
-                <li>Acta de Grado (<b>Obligatorio</b>)</li>
-                <li>Diploma Bachiller (<b>Obligatorio</b>)</li>
-                <li>Documento de identidad (<b>Obligatorio</b>)</li>
-                <li>Dos (2) recibos públicos (<b>Obligatorio</b>)</li>
-                <li>Resultados pruebas de estado Saber 11, PDF Completo (<b>Obligatorio</b>)</li>
-                <li>Certificado SISBEN (<b>Si aplica</b>)</li>
-                <li>Certificado de vulnerabilidad (<b>Si aplica</b>)</li>
-              </ul>
-            </div>
-            <a class="cta-btn primary" href="https://usm.edu.co" rel="noopener noreferrer" target="_blank">INSCRIBIRME
-              AQUÍ</a>
-            <a class="cta-btn secondary" href="https://usm.edu.co" rel="noopener noreferrer" target="_blank">SOLICITAR
-              INFORMACIÓN</a>
-          </div>
-        </div>
-      </aside>
-      <section class="content-stack">
-        <nav class="submenu">
-          <button class="btn active" data-view="programa-view">PROGRAMA</button>
-          <a class="btn primary" href="#inscripcion">INSCRIBIRME</a>
-          <button class="btn" data-view="docentes-view">DOCENTES</button>
-          <button class="btn" data-view="investigacion-view">INVESTIGACIÓN</button>
-          <button class="btn" data-view="extension-view">EXTENSIÓN</button>
-        </nav>
-        <div class="page-view active" id="programa-view">
-          <section class="card hero">
-            <div>
+                <div class="card" style="margin-top:18px;">
+                    <div class="card-head">Ver Programa Base</div>
+                    <div class="card-body" style="display:grid;gap:14px;">
+                        <div class="program-link-card">
+                            <div class="program-link-subtitle">Tecnología en Gestión del Agua</div>
+                            <p style="margin:0;color:#324b6f;font-size:14px;line-height:1.6;">Este programa académico
+                                corresponde al nivel de tecnología y representa el primer nivel del ciclo propedéutico,
+                                que se articula con el programa académico de Ingeniería del Agua y Desarrollo Sostenible
+                                para consolidar la trayectoria formativa que oferta la institución.</p>
+                        </div>
+                        <a class="cta-btn secondary" href="tecnologia-en-gestion-del-agua.html">VER PROGRAMA BASE</a>
+                    </div>
+                </div>
+                <div class="card inscription" id="inscripcion" style="margin-top:18px;">
+                    <div class="card-head" style="text-align:center;">Inscripción</div>
+                    <div class="card-body">
+                        <div class="docs-box">
+                            <h3>Documentos Requeridos:</h3>
+                            <ul class="docs-list">
+                                <li>Acta de Grado (<b>Obligatorio</b>)</li>
+                                <li>Diploma Bachiller (<b>Obligatorio</b>)</li>
+                                <li>Documento de identidad (<b>Obligatorio</b>)</li>
+                                <li>Dos (2) recibos públicos (<b>Obligatorio</b>)</li>
+                                <li>Resultados pruebas de estado Saber 11, PDF Completo (<b>Obligatorio</b>)</li>
+                                <li>Certificado SISBEN (<b>Si aplica</b>)</li>
+                                <li>Certificado de vulnerabilidad (<b>Si aplica</b>)</li>
+                            </ul>
+                        </div>
+                        <a class="cta-btn primary" href="https://usm.edu.co" rel="noopener noreferrer"
+                            target="_blank">INSCRIBIRME AQUÍ</a>
+                        <a class="cta-btn secondary" href="https://usm.edu.co" rel="noopener noreferrer"
+                            target="_blank">SOLICITAR INFORMACIÓN</a>
+                    </div>
+                </div>
+            </aside>
+            <section class="content-stack">
+                <nav class="submenu">
+                    <button class="btn active" data-view="programa-view">PROGRAMA</button>
+                    <a class="btn primary" href="#inscripcion">INSCRIBIRME</a>
+                    <button class="btn" data-view="docentes-view">DOCENTES</button>
+                    <button class="btn" data-view="investigacion-view">INVESTIGACIÓN</button>
+                    <button class="btn" data-view="extension-view">EXTENSIÓN</button>
+                </nav>
+                <div class="page-view active" id="programa-view">
+                    <section class="card hero">
+                        <div>
 
-              <h1>Ingeniería del Agua y<br />Desarrollo Sostenible</h1>
-              <div class="underline"></div>
-              <p>Forma profesionales con visión sistémica, científica y territorial para diseñar, liderar
-                y gestionar soluciones sostenibles en abastecimiento, saneamiento, drenaje, restauración
-                ecológica y adaptación al cambio climático.</p>
+                            <h1>Ingeniería del Agua y<br />Desarrollo Sostenible</h1>
+                            <div class="underline"></div>
+                            <p>Forma profesionales con visión sistémica, científica y territorial para diseñar, liderar
+                                y gestionar soluciones sostenibles en abastecimiento, saneamiento, drenaje, restauración
+                                ecológica y adaptación al cambio climático.</p>
 
-            </div>
-            <div aria-hidden="true" class="hero-visual">
-              <svg viewbox="0 0 520 320" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <lineargradient id="g1e" x1="0" x2="0" y1="0" y2="1">
-                    <stop offset="0%" stop-color="#d7ecff"></stop>
-                    <stop offset="100%" stop-color="#f4f9ff"></stop>
-                  </lineargradient>
-                </defs>
-                <rect fill="url(#g1e)" height="320" width="520"></rect>
-                <circle cx="410" cy="58" fill="#ffffff" opacity=".9" r="30"></circle>
-                <path d="M0 220 C80 190, 150 192, 230 220 S390 250, 520 220 L520 320 L0 320 Z" fill="#0a63d8"
-                  opacity=".14"></path>
-                <path d="M0 245 C70 220, 150 220, 240 245 S390 272, 520 245" fill="none" stroke="#8cc4ff"
-                  stroke-width="6"></path>
-                <rect fill="#ffffff" height="98" rx="8" stroke="#cfe2f9" width="82" x="68" y="140">
-                </rect>
-                <rect fill="#ffffff" height="126" rx="8" stroke="#cfe2f9" width="122" x="178" y="112">
-                </rect>
-                <rect fill="#ffffff" height="84" rx="8" stroke="#cfe2f9" width="120" x="328" y="154">
-                </rect>
-                <path d="M96 184 h34 v36 h-34 z" fill="#0a63d8" opacity=".15"></path>
-                <path d="M206 142 h64 M206 162 h64 M206 182 h64" stroke="#0a63d8" stroke-linecap="round"
-                  stroke-width="8"></path>
-                <path d="M356 188 h64 M356 208 h42" stroke="#0a63d8" stroke-linecap="round" stroke-width="8"></path>
-                <path d="M110 120 C150 98, 198 96, 238 112" fill="none" stroke="#0a63d8" stroke-linecap="round"
-                  stroke-width="10"></path>
-                <path d="M238 112 C274 126, 320 138, 362 168" fill="none" stroke="#0a63d8" stroke-linecap="round"
-                  stroke-width="10"></path>
-                <path
-                  d="M255 48 C255 24, 282 18, 294 42 C307 69, 278 90, 270 108 C262 92, 234 76, 242 48 C246 34, 255 29, 255 48 Z"
-                  fill="#0a63d8"></path>
-              </svg>
-            </div>
-          </section>
-          <section class="section-card">
-            <div class="study-header">
-              <h2>Plan de estudios</h2>
-              <a class="download-link" download="" href="3A. DM_USM_PU_IADS_V72025_VER_ACTUAL.pdf">Descargar Plan de
-                Estudios</a>
-            </div>
-            <div class="semester-tabs"><button class="active" data-semester="1">1ro<small>Semestre</small></button>
-              <button data-semester="2">2do<small>Semestre</small></button>
-              <button data-semester="3">3ro<small>Semestre</small></button>
-              <button data-semester="4">4to<small>Semestre</small></button>
-              <button data-semester="5">5to<small>Semestre</small></button>
-              <button data-semester="6">6to<small>Semestre</small></button>
-              <button data-semester="7">7mo<small>Semestre</small></button>
-              <button data-semester="8">8vo<small>Semestre</small></button>
-              <button data-semester="9">9no<small>Semestre</small></button>
-              <button data-semester="10">10mo<small>Semestre</small></button>
-            </div>
-            <div class="semester-panel">
-              <table>
-                <thead>
-                  <tr>
-                    <th style="width:16%">Código</th>
-                    <th>Espacio académico</th>
-                    <th style="width:14%">Créditos</th>
-                  </tr>
-                </thead>
-                <tbody id="study-table-body"></tbody>
-                <tfoot>
-                  <tr>
-                    <td colspan="3" id="study-total"></td>
-                  </tr>
-                </tfoot>
-              </table>
-              <div class="mini-note">Este plan corresponde al nivel profesional universitario y consolida
-                la trayectoria por ciclos propedéuticos iniciada en Tecnología en Gestión del Agua.
-              </div>
-            </div>
-          </section>
-          <section class="section-card">
-            <div class="study-header">
-              <h2>Presentación del programa</h2>
-              <a class="download-link" download="" href="3A. DM_USM_PU_IADS_V72025_VER_ACTUAL.pdf">Conocer el programa ·
-                Descargar
-                PDF</a>
-            </div>
-            <div class="section-body description-grid">
-              <div class="description-copy">
-                <p>La Ingeniería del Agua y Desarrollo Sostenible es un programa profesional
-                  universitario orientado a la comprensión integral del agua como eje estructurante
-                  del territorio, los ecosistemas y el desarrollo sostenible.</p>
-                <p>Su formación articula ciencias básicas, ingeniería, sostenibilidad, ordenamiento
-                  territorial, gobernanza del agua y adaptación al cambio climático para diseñar
-                  soluciones complejas en contextos urbanos, rurales y costeros.</p>
-              </div>
-              <div class="video-placeholder">
-                <div class="video-frame">
-                  <!-- Reemplaza este bloque por un iframe de YouTube o por una etiqueta <video> propia del programa -->
-                  <div class="video-dummy">Espacio reservado para video exploratorio del
-                    programa<br />YouTube o video institucional</div>
-                </div>
-                <p class="video-note">Este espacio está listo para insertar un video embebido de YouTube
-                  o un video propio en formato MP4/WebM.</p>
-              </div>
-            </div>
-          </section>
-          <section class="section-card">
-            <div class="section-title">Perfiles del programa</div>
-            <div class="profile-tabs">
-              <button class="active" data-profile="aspirante">Perfil del aspirante</button>
-              <button data-profile="egresado">Perfil del Egresado</button>
-            </div>
-            <div class="profile-box">
-              <div class="profile-illustration"></div>
-              <div id="profile-content"></div>
-            </div>
-          </section>
-          <section class="section-card">
-            <div class="section-title">¿Por qué estudiar este programa?</div>
-            <div class="section-body" style="padding-top:10px;">
-              <div class="benefits">
-                <div class="benefit">
-                  <div class="bigicon">🌐</div>
-                  <h3>Visión sistémica</h3>
-                  <p>Integra dimensiones técnicas, ambientales, sociales, normativas y territoriales
-                    en la gestión sostenible del agua.</p>
-                </div>
-                <div class="benefit">
-                  <div class="bigicon">📐</div>
-                  <h3>Ingeniería aplicada</h3>
-                  <p>Desarrolla capacidades para diseño, modelación, planificación y evaluación de
-                    sistemas hídricos e infraestructura hidráulica.</p>
-                </div>
-                <div class="benefit">
-                  <div class="bigicon">🌿</div>
-                  <h3>Sostenibilidad y clima</h3>
-                  <p>Aborda seguridad hídrica, adaptación climática, restauración ecológica y
-                    soluciones basadas en la naturaleza.</p>
-                </div>
-                <div class="benefit">
-                  <div class="bigicon">🔗</div>
-                  <h3>Ciclo propedéutico</h3>
-                  <p>Representa la culminación de la ruta formativa por ciclos, articulada con
-                    Tecnología en Gestión del Agua y proyectada al nivel profesional universitario.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
+                        </div>
+                        <div aria-hidden="true" class="hero-visual">
+                            <svg viewbox="0 0 520 320" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <lineargradient id="g1e" x1="0" x2="0" y1="0" y2="1">
+                                        <stop offset="0%" stop-color="#d7ecff"></stop>
+                                        <stop offset="100%" stop-color="#f4f9ff"></stop>
+                                    </lineargradient>
+                                </defs>
+                                <rect fill="url(#g1e)" height="320" width="520"></rect>
+                                <circle cx="410" cy="58" fill="#ffffff" opacity=".9" r="30"></circle>
+                                <path d="M0 220 C80 190, 150 192, 230 220 S390 250, 520 220 L520 320 L0 320 Z"
+                                    fill="#0a63d8" opacity=".14"></path>
+                                <path d="M0 245 C70 220, 150 220, 240 245 S390 272, 520 245" fill="none"
+                                    stroke="#8cc4ff" stroke-width="6"></path>
+                                <rect fill="#ffffff" height="98" rx="8" stroke="#cfe2f9" width="82" x="68" y="140">
+                                </rect>
+                                <rect fill="#ffffff" height="126" rx="8" stroke="#cfe2f9" width="122" x="178" y="112">
+                                </rect>
+                                <rect fill="#ffffff" height="84" rx="8" stroke="#cfe2f9" width="120" x="328" y="154">
+                                </rect>
+                                <path d="M96 184 h34 v36 h-34 z" fill="#0a63d8" opacity=".15"></path>
+                                <path d="M206 142 h64 M206 162 h64 M206 182 h64" stroke="#0a63d8" stroke-linecap="round"
+                                    stroke-width="8"></path>
+                                <path d="M356 188 h64 M356 208 h42" stroke="#0a63d8" stroke-linecap="round"
+                                    stroke-width="8"></path>
+                                <path d="M110 120 C150 98, 198 96, 238 112" fill="none" stroke="#0a63d8"
+                                    stroke-linecap="round" stroke-width="10"></path>
+                                <path d="M238 112 C274 126, 320 138, 362 168" fill="none" stroke="#0a63d8"
+                                    stroke-linecap="round" stroke-width="10"></path>
+                                <path
+                                    d="M255 48 C255 24, 282 18, 294 42 C307 69, 278 90, 270 108 C262 92, 234 76, 242 48 C246 34, 255 29, 255 48 Z"
+                                    fill="#0a63d8"></path>
+                            </svg>
+                        </div>
+                    </section>
+                    <section class="section-card">
+                        <div class="study-header">
+                            <h2>Plan de estudios</h2>
+                            <a class="download-link" download=""
+                                href="3A. DM_USM_PU_IADS_V72025_VER_ACTUAL.pdf">Descargar Plan de Estudios</a>
+                        </div>
+                        <div class="semester-tabs"><button class="active"
+                                data-semester="1">1ro<small>Semestre</small></button>
+                            <button data-semester="2">2do<small>Semestre</small></button>
+                            <button data-semester="3">3ro<small>Semestre</small></button>
+                            <button data-semester="4">4to<small>Semestre</small></button>
+                            <button data-semester="5">5to<small>Semestre</small></button>
+                            <button data-semester="6">6to<small>Semestre</small></button>
+                            <button data-semester="7">7mo<small>Semestre</small></button>
+                            <button data-semester="8">8vo<small>Semestre</small></button>
+                            <button data-semester="9">9no<small>Semestre</small></button>
+                            <button data-semester="10">10mo<small>Semestre</small></button>
+                        </div>
+                        <div class="semester-panel">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th style="width:16%">Código</th>
+                                        <th>Espacio académico</th>
+                                        <th style="width:14%">Créditos</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="study-table-body"></tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="3" id="study-total"></td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                            <div class="mini-note">Este plan corresponde al nivel profesional universitario y consolida
+                                la trayectoria por ciclos propedéuticos iniciada en Tecnología en Gestión del Agua.
+                            </div>
+                        </div>
+                    </section>
+                    <section class="section-card">
+                        <div class="study-header">
+                            <h2>Presentación del programa</h2>
+                            <a class="download-link" download=""
+                                        href="3A. DM_USM_PU_IADS_V72025_VER_ACTUAL.pdf">Conocer el programa · Descargar
+                                        PDF</a>
+                        </div>
+                        <div class="section-body description-grid">
+                            <div class="description-copy">
+                                <p>La Ingeniería del Agua y Desarrollo Sostenible es un programa profesional
+                                    universitario orientado a la comprensión integral del agua como eje estructurante
+                                    del territorio, los ecosistemas y el desarrollo sostenible.</p>
+                                <p>Su formación articula ciencias básicas, ingeniería, sostenibilidad, ordenamiento
+                                    territorial, gobernanza del agua y adaptación al cambio climático para diseñar
+                                    soluciones complejas en contextos urbanos, rurales y costeros.</p>
+                            </div>
+                            <div class="video-placeholder">
+                                <div class="video-frame">
+                                    <!-- Reemplaza este bloque por un iframe de YouTube o por una etiqueta <video> propia del programa -->
+                                    <div class="video-dummy">Espacio reservado para video exploratorio del
+                                        programa<br />YouTube o video institucional</div>
+                                </div>
+                                <p class="video-note">Este espacio está listo para insertar un video embebido de YouTube
+                                    o un video propio en formato MP4/WebM.</p>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="section-card">
+                        <div class="section-title">Perfiles del programa</div>
+                        <div class="profile-tabs">
+                            <button class="active" data-profile="aspirante">Perfil del aspirante</button>
+                            <button data-profile="profesional">Perfil Profesional</button>
+                        </div>
+                        <div class="profile-box">
+                            <div class="profile-illustration"></div>
+                            <div id="profile-content"></div>
+                        </div>
+                    </section>
+                    <section class="section-card">
+                        <div class="section-title">¿Por qué estudiar este programa?</div>
+                        <div class="section-body" style="padding-top:10px;">
+                            <div class="benefits">
+                                <div class="benefit">
+                                    <div class="bigicon">🌐</div>
+                                    <h3>Visión sistémica</h3>
+                                    <p>Integra dimensiones técnicas, ambientales, sociales, normativas y territoriales
+                                        en la gestión sostenible del agua.</p>
+                                </div>
+                                <div class="benefit">
+                                    <div class="bigicon">📐</div>
+                                    <h3>Ingeniería aplicada</h3>
+                                    <p>Desarrolla capacidades para diseño, modelación, planificación y evaluación de
+                                        sistemas hídricos e infraestructura hidráulica.</p>
+                                </div>
+                                <div class="benefit">
+                                    <div class="bigicon">🌿</div>
+                                    <h3>Sostenibilidad y clima</h3>
+                                    <p>Aborda seguridad hídrica, adaptación climática, restauración ecológica y
+                                        soluciones basadas en la naturaleza.</p>
+                                </div>
+                                <div class="benefit">
+                                    <div class="bigicon">🔗</div>
+                                    <h3>Ciclo propedéutico</h3>
+                                    <p>Representa la culminación de la ruta formativa por ciclos, articulada con
+                                        Tecnología en Gestión del Agua y proyectada al nivel profesional universitario.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
 
-          <section class="academic-structure">
-            <h2>Misión y Visión</h2>
-            <div class="structure-grid mission-vision-grid">
-              <div class="structure-item">
-                <div class="bubble">🎯</div>
+                    <section class="academic-structure">
+                        <h2>Misión y Visión</h2>
+                        <div class="structure-grid mission-vision-grid">
+                            <div class="structure-item">
+                                <div class="bubble">🎯</div>
+                                <div>
+                                    <h4>Misión</h4>
+                                    <p>Formar profesionales íntegros en los niveles tecnológico y profesional universitario en el campo de la Ingeniería del Agua y el Desarrollo Sostenible, mediante procesos formativos innovadores que promuevan el aprendizaje autónomo, el pensamiento crítico, la acción ética y la construcción de competencias sólidas en el saber, el hacer y el ser. El programa orienta su quehacer a la gestión sostenible del agua y la transformación de los entornos sociales y productivos, contribuyendo a la equidad territorial y al bienestar de las comunidades.</p>
+                                </div>
+                            </div>
+                            <div class="structure-item">
+                                <div class="bubble">🔭</div>
+                                <div>
+                                    <h4>Visión</h4>
+                                    <p>El programa de Ingeniería del Agua y Desarrollo Sostenible será reconocido, a nivel nacional e internacional, por su excelencia académica, su enfoque transdisciplinario y su capacidad de formar profesionales comprometidos con la gestión sostenible del agua, la innovación social y la transformación de los territorios. Liderará procesos educativos centrados en el estudiante, integrando estrategias pedagógicas activas, investigación formativa y evaluación auténtica como pilares de una mejora continua que responda a los desafíos ambientales, sociales y tecnológicos del siglo XXI.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="section-card objectives-section">
+                        <div class="section-title">Objetivos Educativos</div>
+                        <div class="section-body">
+                            <p>Los objetivos del Programa de Ingeniería del Agua y Desarrollo Sostenible (Nivel 6 MNC - Profesional Universitario) orientan la formación hacia la gestión sostenible del agua, la innovación, la investigación aplicada y la articulación con el territorio.</p>
+                            <div class="objectives-carousel">
+                                <ul class="objectives-list" aria-label="Objetivos educativos del programa">
+                                <li class="objectives-card">Formar profesionales integrales con pensamiento crítico, ética pública, compromiso socioambiental y competencias científicas para liderar procesos de gestión sostenible del agua en distintos territorios.</li>
+                                <li class="objectives-card">Diseñar soluciones complejas a los problemas asociados al agua desde un enfoque sistémico, transdisciplinar y multiescalar, considerando variables sociales, técnicas, ecológicas, jurídicas y económicas.</li>
+                                <li class="objectives-card">Articular la formación académica con el sector productivo, institucional y comunitario, mediante la participación en proyectos reales, prácticas profesionales, investigación aplicada y vinculación con actores estratégicos.</li>
+                                <li class="objectives-card">Fomentar el bilingüismo funcional y la interculturalidad, garantizando la participación de los estudiantes en contextos académicos y laborales nacionales e internacionales.</li>
+                                <li class="objectives-card">Impulsar la innovación, la investigación y el emprendimiento, como herramientas para transformar el entorno y contribuir al desarrollo sostenible a escala local y global.</li>
+                                <li class="objectives-card">Garantizar la pertinencia y calidad del programa, a través de un sistema de autoevaluación, mejoramiento continuo y respuesta a los retos de la gobernanza del agua y el cambio climático.</li>
+                            </ul>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="page-view" id="docentes-view">
+                    <section class="section-card">
+                        <div class="section-title">Docentes</div>
+                        <div class="section-body">
+                            <p>El documento maestro proyecta una planta docente articulada con las necesidades del
+                                programa, con formación en ingeniería del agua, hidrosistemas, saneamiento ambiental,
+                                gestión territorial y áreas afines.</p>
+                        </div>
+                        <div class="highlight-grid">
+                            <div class="highlight">
+                                <h3>Enfoque disciplinar</h3>
+                                <p>La propuesta docente integra perfiles en ingeniería civil, hidrología, hidráulica,
+                                    geomática, saneamiento y sostenibilidad, coherentes con la complejidad del currículo
+                                    profesional.</p>
+                            </div>
+                            <div class="highlight">
+                                <h3>Actualización permanente</h3>
+                                <p>Se contemplan estrategias de capacitación, fortalecimiento investigativo y
+                                    mejoramiento continuo para garantizar calidad académica y pertinencia territorial.
+                                </p>
+                            </div>
+                            <div class="highlight">
+                                <h3>Aprendizaje situado</h3>
+                                <p>La docencia se apoya en laboratorios, trabajo de campo, proyectos integradores y
+                                    ambientes auténticos de aprendizaje vinculados al contexto hídrico de Santa Marta.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="page-view" id="investigacion-view">
+                    <section class="section-card">
+                        <div class="section-title">Investigación</div>
+                        <div class="section-body">
+                            <p>La investigación del programa se orienta a la generación de soluciones aplicadas para la
+                                gestión sostenible del agua, la restauración de hidrosistemas y la adaptación al cambio
+                                climático.</p>
+                        </div>
+                        <div class="highlight-grid">
+                            <div class="highlight">
+                                <h3>I+D+i aplicada</h3>
+                                <p>Se promueve la formulación y desarrollo de proyectos interdisciplinarios de
+                                    investigación, desarrollo e innovación orientados a conservación, protección y
+                                    restauración de sistemas hídricos.</p>
+                            </div>
+                            <div class="highlight">
+                                <h3>Modelación y monitoreo</h3>
+                                <p>El currículo integra herramientas para análisis de datos, modelación hidrológica e
+                                    hidráulica, georreferenciación y monitoreo ambiental en escenarios reales y
+                                    simulados.</p>
+                            </div>
+                            <div class="highlight">
+                                <h3>Grupo GS-AGUA</h3>
+                                <p>El documento maestro articula la formación investigativa con el Grupo de
+                                    Investigación GS-AGUA, semilleros y redes académicas en el campo del agua y el
+                                    desarrollo sostenible.</p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="page-view" id="extension-view">
+                    <section class="section-card">
+                        <div class="section-title">Extensión y relación con el entorno</div>
+                        <div class="section-body">
+                            <p>La extensión del programa busca incidir en problemáticas territoriales asociadas con
+                                abastecimiento, saneamiento, drenaje, gestión del riesgo, gobernanza del agua y cultura
+                                ambiental.</p>
+                        </div>
+                        <div class="highlight-grid">
+                            <div class="highlight">
+                                <h3>Trabajo con comunidades</h3>
+                                <p>Se plantean proyectos con comunidades y actores del territorio para fortalecer
+                                    educación ambiental, participación social y gestión sostenible del agua.</p>
+                            </div>
+                            <div class="highlight">
+                                <h3>Sector productivo e institucional</h3>
+                                <p>El programa promueve articulación con entidades públicas, sector productivo y
+                                    cooperación técnica para transferencia de conocimiento y actualización tecnológica.
+                                </p>
+                            </div>
+                            <div class="highlight">
+                                <h3>Gobernanza e internacionalización</h3>
+                                <p>Se proyecta participación en redes, alianzas y experiencias de internacionalización
+                                    para fortalecer la gobernanza del agua y la visibilidad académica del programa.</p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </section>
+
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
                 <div>
-                  <h4>Misión</h4>
-                  <p>Formar profesionales íntegros en ingeniería del agua y desarrollo sostenible
-                    mediante procesos innovadores, pensamiento crítico y acción ética.</p>
+                    <div class="footer-brand">
+                        <div class="usm-foot">USM</div>
+                        <div class="inst-foot">INSTITUCIÓN UNIVERSITARIA<br />DE SANTA MARTA</div>
+                    </div>
                 </div>
-              </div>
-              <div class="structure-item">
-                <div class="bubble">🔭</div>
-                <div>
-                  <h4>Visión</h4>
-                  <p>Ser un programa reconocido por su excelencia académica, enfoque
-                    transdisciplinario e impacto en la transformación sostenible de los territorios.
-                  </p>
+                <div class="footer-links">
+                    <div><b>Enlaces rápidos</b>
+                        <div>Admisiones</div>
+                        <div>Calendario académico</div>
+                        <div>Bienestar universitario</div>
+                    </div>
+                    <div><b> </b>
+                        <div>Transparencia</div>
+                        <div>Atención al ciudadano</div>
+                        <div>PQRSDF</div>
+                    </div>
                 </div>
-              </div>
+                <div class="footer-social">
+                    <b>Síguenos</b>
+                    <div class="icons">
+                        <div class="soc">f</div>
+                        <div class="soc">ig</div>
+                        <div class="soc">▶</div>
+                        <div class="soc">in</div>
+                    </div>
+                </div>
             </div>
-          </section>
+            <div class="legal">© 2025 Institución Universitaria de Santa Marta - USM | Vigilada MINEDUCACIÓN | NIT.
+                901.345.611-1</div>
+        </div>
+    </footer>
+    <script>
+        const semesterData = {
+            "1": [
+                [
+                    "41090101",
+                    "Lectoescritura y Comunicación Técnica",
+                    2
+                ],
+                [
+                    "41090102",
+                    "Expresión Oral y Escrita",
+                    2
+                ],
+                [
+                    "41090103",
+                    "Álgebra y Geometría Análitica",
+                    4
+                ],
+                [
+                    "41090104",
+                    "Álgebra Lineal Aplicada",
+                    3
+                ],
+                [
+                    "41090105",
+                    "Dibujo Técnico y Geometría Descriptiva",
+                    3
+                ],
+                [
+                    "41090106",
+                    "Introducción a las Ciencias del Agua y a la Tecnología",
+                    3
+                ]
+            ],
+            "2": [
+                [
+                    "41090207",
+                    "Bioética y Sociedad Contemporánea",
+                    2
+                ],
+                [
+                    "41090208",
+                    "Competencias Humanas y Desarrollo Integral",
+                    2
+                ],
+                [
+                    "41090209",
+                    "Cálculo Diferencial Aplicado",
+                    4
+                ],
+                [
+                    "41090210",
+                    "Química General Aplicada",
+                    3
+                ],
+                [
+                    "41090211",
+                    "Topografía y Geomática",
+                    3
+                ],
+                [
+                    "41090212",
+                    "Hidrobiología",
+                    3
+                ]
+            ],
+            "3": [
+                [
+                    "41090313",
+                    "Cálculo Integral Aplicado",
+                    4
+                ],
+                [
+                    "41090314",
+                    "Estadística y Probabilidad Aplicada",
+                    3
+                ],
+                [
+                    "41090315",
+                    "Física Mecánica Clásica Aplicada",
+                    3
+                ],
+                [
+                    "41090316",
+                    "Fisicoquímica del Agua y Efluentes",
+                    3
+                ],
+                [
+                    "41090317",
+                    "Hidrografía y Acción Antrópica",
+                    2
+                ],
+                [
+                    "41090318",
+                    "Electiva I: Tecnología de la Información y Comunicación",
+                    2
+                ]
+            ],
+            "4": [
+                [
+                    "41090419",
+                    "Investigación, Innovación y Emprendimiento I",
+                    2
+                ],
+                [
+                    "41090420",
+                    "Legislación Ambiental y Políticas Públicas",
+                    2
+                ],
+                [
+                    "41090421",
+                    "Ecuaciones Diferenciales",
+                    3
+                ],
+                [
+                    "41090422",
+                    "Hidrología General",
+                    3
+                ],
+                [
+                    "41090423",
+                    "Física de Ondas y Termodinámica Aplicada",
+                    3
+                ],
+                [
+                    "41090424",
+                    "Microbiología y Gestión de la Calidad del Agua",
+                    2
+                ],
+                [
+                    "41090425",
+                    "Electiva II: Tecnologías Digitales Aplicadas I",
+                    2
+                ]
+            ],
+            "5": [
+                [
+                    "41090526",
+                    "Gestión Social del Agua y Desarrollo Sostenible",
+                    2
+                ],
+                [
+                    "41090527",
+                    "Meteorología Aplicada",
+                    3
+                ],
+                [
+                    "41090528",
+                    "Mecánica de Fluidos Ambiental",
+                    4
+                ],
+                [
+                    "41090529",
+                    "Tratamiento de Agua Potable y Aguas Residuales",
+                    3
+                ],
+                [
+                    "41090530",
+                    "Ciencias de los Materiales Aplicadas",
+                    3
+                ],
+                [
+                    "41090531",
+                    "Electiva III: Desarrollo Sostenible",
+                    2
+                ]
+            ],
+            "6": [
+                [
+                    "41090632",
+                    "Práctica Profesional",
+                    3
+                ],
+                [
+                    "41090633",
+                    "Hidráulica de Canales",
+                    3
+                ],
+                [
+                    "41090634",
+                    "Manejo de Sistemas de Acueducto y Alcantarillado",
+                    3
+                ],
+                [
+                    "41090635",
+                    "Hidrometría Aplicada",
+                    3
+                ],
+                [
+                    "41090636",
+                    "Geología y Geomorfología Aplicada",
+                    3
+                ],
+                [
+                    "41090637",
+                    "Electiva IV: Desarrollo Sostenible",
+                    2
+                ]
+            ],
+            "7": [
+                [
+                    "51100738",
+                    "Formación en Investigación II",
+                    2
+                ],
+                [
+                    "51100739",
+                    "Ecuaciones Diferenciales",
+                    3
+                ],
+                [
+                    "51100740",
+                    "Gestión y Desarrollo de Modelos de Machine Learning",
+                    3
+                ],
+                [
+                    "51100741",
+                    "Procesamiento de Datos en la Nube",
+                    3
+                ],
+                [
+                    "51100742",
+                    "Desarrollo de Aplicaciones para Inteligencia Artificial",
+                    3
+                ],
+                [
+                    "51100743",
+                    "Electiva de Profundización V",
+                    2
+                ]
+            ],
+            "8": [
+                [
+                    "51100844",
+                    "Formación en Investigación III",
+                    2
+                ],
+                [
+                    "51100845",
+                    "Métodos Numéricos",
+                    3
+                ],
+                [
+                    "51100846",
+                    "Ingeniería de Datos en la Nube",
+                    3
+                ],
+                [
+                    "51100847",
+                    "Desarrollo de Redes Neuronales y Deep Learning",
+                    3
+                ],
+                [
+                    "51100848",
+                    "Optimización y Ajuste de Modelos de IA",
+                    3
+                ],
+                [
+                    "51100849",
+                    "Electiva de Profundización VI",
+                    2
+                ]
+            ],
+            "9": [
+                [
+                    "51100950",
+                    "Emprendimiento e Innovación II",
+                    2
+                ],
+                [
+                    "51100951",
+                    "Herramientas de Administración y Gestión",
+                    2
+                ],
+                [
+                    "51100952",
+                    "Estadística Inferencial",
+                    2
+                ],
+                [
+                    "51100953",
+                    "Procesamiento de Datos de Lenguaje Natural",
+                    3
+                ],
+                [
+                    "51100954",
+                    "Seguridad y Auditoría en Modelos de IA",
+                    3
+                ],
+                [
+                    "51100955",
+                    "Implementación de Sistemas Autónomos e Inteligentes",
+                    3
+                ],
+                [
+                    "51100956",
+                    "Electiva de Profundización VII",
+                    2
+                ]
+            ],
+            "10": [
+                [
+                    "51101057",
+                    "Formulación y Evaluación de Proyectos",
+                    3
+                ],
+                [
+                    "51101058",
+                    "Proyecto de Grado",
+                    4
+                ],
+                [
+                    "51101059",
+                    "Ética y Regulación en Inteligencia Artificial",
+                    3
+                ],
+                [
+                    "51101060",
+                    "Desarrollo y Evaluación de Modelos de IA en Producción",
+                    3
+                ],
+                [
+                    "51101061",
+                    "Electiva de Profundización VIII",
+                    2
+                ]
+            ]
+        };
 
-          <section class="section-card objectives-section">
-            <div class="section-title">Objetivos Educativos</div>
-            <div class="section-body">
-              <p>Los objetivos del Programa de Ingeniería del Agua y Desarrollo Sostenible (Nivel 6 MNC - Profesional
-                Universitario) orientan la formación hacia la gestión sostenible del agua, la innovación, la
-                investigación aplicada y la articulación con el territorio.</p>
-              <div class="objectives-carousel">
-                <ul class="objectives-list" aria-label="Objetivos educativos del programa">
-                  <li class="objectives-card">Formar profesionales integrales con pensamiento crítico, ética pública,
-                    compromiso socioambiental y competencias científicas para liderar procesos de gestión sostenible del
-                    agua en distintos territorios.</li>
-                  <li class="objectives-card">Diseñar soluciones complejas a los problemas asociados al agua desde un
-                    enfoque sistémico, transdisciplinar y multiescalar, considerando variables sociales, técnicas,
-                    ecológicas, jurídicas y económicas.</li>
-                  <li class="objectives-card">Articular la formación académica con el sector productivo, institucional y
-                    comunitario, mediante la participación en proyectos reales, prácticas profesionales, investigación
-                    aplicada y vinculación con actores estratégicos.</li>
-                  <li class="objectives-card">Fomentar el bilingüismo funcional y la interculturalidad, garantizando la
-                    participación de los estudiantes en contextos académicos y laborales nacionales e internacionales.
-                  </li>
-                  <li class="objectives-card">Impulsar la innovación, la investigación y el emprendimiento, como
-                    herramientas para transformar el entorno y contribuir al desarrollo sostenible a escala local y
-                    global.</li>
-                  <li class="objectives-card">Garantizar la pertinencia y calidad del programa, a través de un sistema
-                    de autoevaluación, mejoramiento continuo y respuesta a los retos de la gobernanza del agua y el
-                    cambio climático.</li>
-                </ul>
-              </div>
-            </div>
-          </section>
-        </div>
-        <div class="page-view" id="docentes-view">
-          <section class="section-card">
-            <div class="section-title">Docentes</div>
-            <div class="section-body">
-              <p>El documento maestro proyecta una planta docente articulada con las necesidades del
-                programa, con formación en ingeniería del agua, hidrosistemas, saneamiento ambiental,
-                gestión territorial y áreas afines.</p>
-            </div>
-            <div class="highlight-grid">
-              <div class="highlight">
-                <h3>Enfoque disciplinar</h3>
-                <p>La propuesta docente integra perfiles en ingeniería civil, hidrología, hidráulica,
-                  geomática, saneamiento y sostenibilidad, coherentes con la complejidad del currículo
-                  profesional.</p>
-              </div>
-              <div class="highlight">
-                <h3>Actualización permanente</h3>
-                <p>Se contemplan estrategias de capacitación, fortalecimiento investigativo y
-                  mejoramiento continuo para garantizar calidad académica y pertinencia territorial.
-                </p>
-              </div>
-              <div class="highlight">
-                <h3>Aprendizaje situado</h3>
-                <p>La docencia se apoya en laboratorios, trabajo de campo, proyectos integradores y
-                  ambientes auténticos de aprendizaje vinculados al contexto hídrico de Santa Marta.
-                </p>
-              </div>
-            </div>
-          </section>
-        </div>
-        <div class="page-view" id="investigacion-view">
-          <section class="section-card">
-            <div class="section-title">Investigación</div>
-            <div class="section-body">
-              <p>La investigación del programa se orienta a la generación de soluciones aplicadas para la
-                gestión sostenible del agua, la restauración de hidrosistemas y la adaptación al cambio
-                climático.</p>
-            </div>
-            <div class="highlight-grid">
-              <div class="highlight">
-                <h3>I+D+i aplicada</h3>
-                <p>Se promueve la formulación y desarrollo de proyectos interdisciplinarios de
-                  investigación, desarrollo e innovación orientados a conservación, protección y
-                  restauración de sistemas hídricos.</p>
-              </div>
-              <div class="highlight">
-                <h3>Modelación y monitoreo</h3>
-                <p>El currículo integra herramientas para análisis de datos, modelación hidrológica e
-                  hidráulica, georreferenciación y monitoreo ambiental en escenarios reales y
-                  simulados.</p>
-              </div>
-              <div class="highlight">
-                <h3>Grupo GS-AGUA</h3>
-                <p>El documento maestro articula la formación investigativa con el Grupo de
-                  Investigación GS-AGUA, semilleros y redes académicas en el campo del agua y el
-                  desarrollo sostenible.</p>
-              </div>
-            </div>
-          </section>
-        </div>
-        <div class="page-view" id="extension-view">
-          <section class="section-card">
-            <div class="section-title">Extensión y relación con el entorno</div>
-            <div class="section-body">
-              <p>La extensión del programa busca incidir en problemáticas territoriales asociadas con
-                abastecimiento, saneamiento, drenaje, gestión del riesgo, gobernanza del agua y cultura
-                ambiental.</p>
-            </div>
-            <div class="highlight-grid">
-              <div class="highlight">
-                <h3>Trabajo con comunidades</h3>
-                <p>Se plantean proyectos con comunidades y actores del territorio para fortalecer
-                  educación ambiental, participación social y gestión sostenible del agua.</p>
-              </div>
-              <div class="highlight">
-                <h3>Sector productivo e institucional</h3>
-                <p>El programa promueve articulación con entidades públicas, sector productivo y
-                  cooperación técnica para transferencia de conocimiento y actualización tecnológica.
-                </p>
-              </div>
-              <div class="highlight">
-                <h3>Gobernanza e internacionalización</h3>
-                <p>Se proyecta participación en redes, alianzas y experiencias de internacionalización
-                  para fortalecer la gobernanza del agua y la visibilidad académica del programa.</p>
-              </div>
-            </div>
-          </section>
-        </div>
-      </section>
-
-    </div>
-  </main>
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <div class="footer-brand">
-            <div class="usm-foot">USM</div>
-            <div class="inst-foot">INSTITUCIÓN UNIVERSITARIA<br />DE SANTA MARTA</div>
-          </div>
-        </div>
-        <div class="footer-links">
-          <div><b>Enlaces rápidos</b>
-            <div>Admisiones</div>
-            <div>Calendario académico</div>
-            <div>Bienestar universitario</div>
-          </div>
-          <div><b> </b>
-            <div>Transparencia</div>
-            <div>Atención al ciudadano</div>
-            <div>PQRSDF</div>
-          </div>
-        </div>
-        <div class="footer-social">
-          <b>Síguenos</b>
-          <div class="icons">
-            <div class="soc">f</div>
-            <div class="soc">ig</div>
-            <div class="soc">▶</div>
-            <div class="soc">in</div>
-          </div>
-        </div>
-      </div>
-      <div class="legal">© 2025 Institución Universitaria de Santa Marta - USM | Vigilada MINEDUCACIÓN | NIT.
-        901.345.611-1</div>
-    </div>
-  </footer>
-  <script>
-    const semesterData = {
-      "1": [
-        [
-          "41090101",
-          "Lectoescritura y Comunicación Técnica",
-          2
-        ],
-        [
-          "41090102",
-          "Expresión Oral y Escrita",
-          2
-        ],
-        [
-          "41090103",
-          "Álgebra y Geometría Análitica",
-          4
-        ],
-        [
-          "41090104",
-          "Álgebra Lineal Aplicada",
-          3
-        ],
-        [
-          "41090105",
-          "Dibujo Técnico y Geometría Descriptiva",
-          3
-        ],
-        [
-          "41090106",
-          "Introducción a las Ciencias del Agua y a la Tecnología",
-          3
-        ]
-      ],
-      "2": [
-        [
-          "41090207",
-          "Bioética y Sociedad Contemporánea",
-          2
-        ],
-        [
-          "41090208",
-          "Competencias Humanas y Desarrollo Integral",
-          2
-        ],
-        [
-          "41090209",
-          "Cálculo Diferencial Aplicado",
-          4
-        ],
-        [
-          "41090210",
-          "Química General Aplicada",
-          3
-        ],
-        [
-          "41090211",
-          "Topografía y Geomática",
-          3
-        ],
-        [
-          "41090212",
-          "Hidrobiología",
-          3
-        ]
-      ],
-      "3": [
-        [
-          "41090313",
-          "Cálculo Integral Aplicado",
-          4
-        ],
-        [
-          "41090314",
-          "Estadística y Probabilidad Aplicada",
-          3
-        ],
-        [
-          "41090315",
-          "Física Mecánica Clásica Aplicada",
-          3
-        ],
-        [
-          "41090316",
-          "Fisicoquímica del Agua y Efluentes",
-          3
-        ],
-        [
-          "41090317",
-          "Hidrografía y Acción Antrópica",
-          2
-        ],
-        [
-          "41090318",
-          "Electiva I: Tecnología de la Información y Comunicación",
-          2
-        ]
-      ],
-      "4": [
-        [
-          "41090419",
-          "Investigación, Innovación y Emprendimiento I",
-          2
-        ],
-        [
-          "41090420",
-          "Legislación Ambiental y Políticas Públicas",
-          2
-        ],
-        [
-          "41090421",
-          "Ecuaciones Diferenciales",
-          3
-        ],
-        [
-          "41090422",
-          "Hidrología General",
-          3
-        ],
-        [
-          "41090423",
-          "Física de Ondas y Termodinámica Aplicada",
-          3
-        ],
-        [
-          "41090424",
-          "Microbiología y Gestión de la Calidad del Agua",
-          2
-        ],
-        [
-          "41090425",
-          "Electiva II: Tecnologías Digitales Aplicadas I",
-          2
-        ]
-      ],
-      "5": [
-        [
-          "41090526",
-          "Gestión Social del Agua y Desarrollo Sostenible",
-          2
-        ],
-        [
-          "41090527",
-          "Meteorología Aplicada",
-          3
-        ],
-        [
-          "41090528",
-          "Mecánica de Fluidos Ambiental",
-          4
-        ],
-        [
-          "41090529",
-          "Tratamiento de Agua Potable y Aguas Residuales",
-          3
-        ],
-        [
-          "41090530",
-          "Ciencias de los Materiales Aplicadas",
-          3
-        ],
-        [
-          "41090531",
-          "Electiva III: Desarrollo Sostenible",
-          2
-        ]
-      ],
-      "6": [
-        [
-          "41090632",
-          "Práctica Profesional",
-          3
-        ],
-        [
-          "41090633",
-          "Hidráulica de Canales",
-          3
-        ],
-        [
-          "41090634",
-          "Manejo de Sistemas de Acueducto y Alcantarillado",
-          3
-        ],
-        [
-          "41090635",
-          "Hidrometría Aplicada",
-          3
-        ],
-        [
-          "41090636",
-          "Geología y Geomorfología Aplicada",
-          3
-        ],
-        [
-          "41090637",
-          "Electiva IV: Desarrollo Sostenible",
-          2
-        ]
-      ],
-      "7": [
-        [
-          "51100738",
-          "Formación en Investigación II",
-          2
-        ],
-        [
-          "51100739",
-          "Ecuaciones Diferenciales",
-          3
-        ],
-        [
-          "51100740",
-          "Gestión y Desarrollo de Modelos de Machine Learning",
-          3
-        ],
-        [
-          "51100741",
-          "Procesamiento de Datos en la Nube",
-          3
-        ],
-        [
-          "51100742",
-          "Desarrollo de Aplicaciones para Inteligencia Artificial",
-          3
-        ],
-        [
-          "51100743",
-          "Electiva de Profundización V",
-          2
-        ]
-      ],
-      "8": [
-        [
-          "51100844",
-          "Formación en Investigación III",
-          2
-        ],
-        [
-          "51100845",
-          "Métodos Numéricos",
-          3
-        ],
-        [
-          "51100846",
-          "Ingeniería de Datos en la Nube",
-          3
-        ],
-        [
-          "51100847",
-          "Desarrollo de Redes Neuronales y Deep Learning",
-          3
-        ],
-        [
-          "51100848",
-          "Optimización y Ajuste de Modelos de IA",
-          3
-        ],
-        [
-          "51100849",
-          "Electiva de Profundización VI",
-          2
-        ]
-      ],
-      "9": [
-        [
-          "51100950",
-          "Emprendimiento e Innovación II",
-          2
-        ],
-        [
-          "51100951",
-          "Herramientas de Administración y Gestión",
-          2
-        ],
-        [
-          "51100952",
-          "Estadística Inferencial",
-          2
-        ],
-        [
-          "51100953",
-          "Procesamiento de Datos de Lenguaje Natural",
-          3
-        ],
-        [
-          "51100954",
-          "Seguridad y Auditoría en Modelos de IA",
-          3
-        ],
-        [
-          "51100955",
-          "Implementación de Sistemas Autónomos e Inteligentes",
-          3
-        ],
-        [
-          "51100956",
-          "Electiva de Profundización VII",
-          2
-        ]
-      ],
-      "10": [
-        [
-          "51101057",
-          "Formulación y Evaluación de Proyectos",
-          3
-        ],
-        [
-          "51101058",
-          "Proyecto de Grado",
-          4
-        ],
-        [
-          "51101059",
-          "Ética y Regulación en Inteligencia Artificial",
-          3
-        ],
-        [
-          "51101060",
-          "Desarrollo y Evaluación de Modelos de IA en Producción",
-          3
-        ],
-        [
-          "51101061",
-          "Electiva de Profundización VIII",
-          2
-        ]
-      ]
-    };
-
-    const profiles = {
-      "aspirante": `
+        const profiles = {
+            "aspirante": `
     <p>El aspirante al programa de Ingeniería del Agua y Desarrollo Sostenible debe mostrar interés por la comprensión de los sistemas hídricos, la sostenibilidad ambiental y la solución de problemáticas del territorio mediante la ingeniería.</p>
     <ul class="checklist">
       <li>Interés por las ciencias básicas, el análisis cuantitativo y la comprensión de fenómenos ambientales e hidráulicos.</li>
@@ -2242,48 +2203,53 @@
       <li>Disposición para el aprendizaje autónomo, el trabajo colaborativo, la innovación y la apropiación de herramientas tecnológicas.</li>
       <li>Sensibilidad social, ética y ambiental frente a los desafíos del cambio climático, la seguridad hídrica y el bienestar de las comunidades.</li>
     </ul>`,
-      "egresado": `
-    <p>El egresado de Ingeniería del Agua y Desarrollo Sostenible será un profesional con formación científica, técnica e interdisciplinaria, orientado a la innovación y a la gestión sostenible del agua en contextos diversos.</p>
+            "profesional": `
+    <p>El Ingeniero del Agua y Desarrollo Sostenible es un profesional universitario con formación científica, técnica e interdisciplinaria, orientada a la innovación y con una visión holística y estratégica de la gestión sostenible del agua en contextos diversos, especialmente en zonas costeras y territorios vulnerables al cambio climático.</p>
     <ul class="checklist">
-      <li>Diseña, lidera e implementa soluciones sostenibles en abastecimiento, saneamiento, drenaje urbano, planificación hídrica y restauración de ecosistemas acuáticos.</li>
-      <li>Integra criterios de sostenibilidad, economía circular, seguridad hídrica y justicia ambiental con herramientas de análisis, modelación y monitoreo.</li>
-      <li>Participa en procesos de investigación aplicada, emprendimiento, formulación de políticas públicas y gobernanza del agua con enfoque territorial.</li>
-      <li>Actúa con liderazgo ético, pensamiento crítico, adaptabilidad y compromiso socioambiental en sectores públicos, privados, comunitarios y de cooperación.</li>
+      <li>Diseña, lidera e implementa soluciones sostenibles en abastecimiento, saneamiento, drenaje urbano, planificación hídrica, adaptación al cambio climático y restauración de ecosistemas acuáticos.</li>
+      <li>Integra criterios de sostenibilidad, economía circular, seguridad hídrica y justicia ambiental en la toma de decisiones.</li>
+      <li>Aplica herramientas avanzadas para el análisis y procesamiento de datos, modelación hidrológica e hidráulica, y tecnologías emergentes para el tratamiento y reúso del agua.</li>
+      <li>Incorpora enfoques como soluciones basadas en la naturaleza, gestión integrada de cuencas, resiliencia urbana y gestión de riesgos hidrológicos extremos.</li>
+      <li>Desarrolla competencias para gestionar proyectos de emprendimiento e investigación aplicada.</li>
+      <li>Asesora políticas públicas y participa en procesos de gobernanza del agua a nivel local, nacional e internacional.</li>
+      <li>Fundamenta sus decisiones técnicas en evidencia, conocimiento contextualizado y principios de sostenibilidad.</li>
+      <li>Se desempeña con liderazgo ético y compromiso socioambiental en sectores públicos, privados, comunitarios y de cooperación internacional.</li>
+      <li>Actúa con pensamiento crítico, adaptabilidad y visión prospectiva, contribuyendo al fortalecimiento de capacidades institucionales, comunitarias y territoriales en la gestión sostenible del agua.</li>
     </ul>`
-    };
+        };
 
-    function renderSemester(n) {
-      const rows = semesterData[n];
-      const body = document.getElementById('study-table-body');
-      const total = rows.reduce((a, b) => a + b[2], 0);
-      body.innerHTML = rows.map(r => `<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join('');
-      document.getElementById('study-total').textContent = `Total créditos semestre: ${total}`;
-    }
-    document.querySelectorAll('.semester-tabs button').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.semester-tabs button').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        renderSemester(btn.dataset.semester);
-      });
-    });
-    document.querySelectorAll('.profile-tabs button').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.profile-tabs button').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        document.getElementById('profile-content').innerHTML = profiles[btn.dataset.profile];
-      });
-    });
-    document.querySelectorAll('.submenu [data-view]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.submenu [data-view]').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        document.querySelectorAll('.page-view').forEach(v => v.classList.remove('active'));
-        document.getElementById(btn.dataset.view).classList.add('active');
-      });
-    });
-    renderSemester(1);
-    document.getElementById('profile-content').innerHTML = profiles.aspirante;
-  </script>
+        function renderSemester(n) {
+            const rows = semesterData[n];
+            const body = document.getElementById('study-table-body');
+            const total = rows.reduce((a, b) => a + b[2], 0);
+            body.innerHTML = rows.map(r => `<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join('');
+            document.getElementById('study-total').textContent = `Total créditos semestre: ${total}`;
+        }
+        document.querySelectorAll('.semester-tabs button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.semester-tabs button').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                renderSemester(btn.dataset.semester);
+            });
+        });
+        document.querySelectorAll('.profile-tabs button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.profile-tabs button').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                document.getElementById('profile-content').innerHTML = profiles[btn.dataset.profile];
+            });
+        });
+        document.querySelectorAll('.submenu [data-view]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.submenu [data-view]').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                document.querySelectorAll('.page-view').forEach(v => v.classList.remove('active'));
+                document.getElementById(btn.dataset.view).classList.add('active');
+            });
+        });
+        renderSemester(1);
+        document.getElementById('profile-content').innerHTML = profiles.aspirante;
+    </script>
 </body>
 
 </html>
